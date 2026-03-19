@@ -31,8 +31,6 @@ import {
   Star,
   Send,
   Facebook,
-  Instagram,
-  Youtube,
   MessageCircle,
   ArrowRight,
   Plus,
@@ -75,9 +73,8 @@ const CONFIG = {
   city: 'Kabupaten Magetan, Jawa Timur 63395', 
   
   // Social Media
-  facebook: 'https://facebook.com/mbuzenkzetro',
-  instagram: 'https://instagram.com/mbuzenkzetro',
-  youtube: 'https://youtube.com/@mbuzenkzetro',
+  facebook: 'https://www.facebook.com/mbuzenk.zetro',
+  tiktok: 'https://www.tiktok.com/@mbah.tro.mbuzenk',
   
   // Jam Operasional
   openHours: '08:00 - 17:00',
@@ -1313,28 +1310,21 @@ function Footer() {
                 href={CONFIG.facebook} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-9 h-9 sm:w-10 sm:h-10 bg-slate-800 hover:bg-orange-500 rounded-lg flex items-center justify-center transition-colors cursor-pointer min-h-[44px] min-w-[44px]"
+                className="w-9 h-9 sm:w-10 sm:h-10 bg-slate-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition-colors cursor-pointer min-h-[44px] min-w-[44px]"
                 aria-label="Facebook"
               >
                 <Facebook className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 hover:text-white" />
               </a>
               <a 
-                href={CONFIG.instagram} 
+                href={CONFIG.tiktok} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-9 h-9 sm:w-10 sm:h-10 bg-slate-800 hover:bg-orange-500 rounded-lg flex items-center justify-center transition-colors cursor-pointer min-h-[44px] min-w-[44px]"
-                aria-label="Instagram"
+                className="w-9 h-9 sm:w-10 sm:h-10 bg-slate-800 hover:bg-black rounded-lg flex items-center justify-center transition-colors cursor-pointer min-h-[44px] min-w-[44px]"
+                aria-label="TikTok"
               >
-                <Instagram className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 hover:text-white" />
-              </a>
-              <a 
-                href={CONFIG.youtube} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-9 h-9 sm:w-10 sm:h-10 bg-slate-800 hover:bg-orange-500 rounded-lg flex items-center justify-center transition-colors cursor-pointer min-h-[44px] min-w-[44px]"
-                aria-label="Youtube"
-              >
-                <Youtube className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 hover:text-white" />
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 hover:text-white" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                </svg>
               </a>
               <button 
                 onClick={() => openWhatsApp('Halo, saya menghubungi dari website.')}
