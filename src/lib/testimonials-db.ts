@@ -1,107 +1,177 @@
-// Upstash Redis client for permanent testimonial storage
-// Setup: Get free Redis at https://upstash.com and add env vars to Vercel
+// Supabase client for permanent testimonial storage
+// Setup: Create free account at https://supabase.com
 
+import { createClient } from '@supabase/supabase-js'
 import { DEFAULT_TESTIMONIALS, TestimonialType } from './data'
 
-// Simple fetch-based Redis client (no external dependencies needed)
-class RedisClient {
-  private url: string
-  private token: string
+// Supabase configuration
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
-  constructor(url: string, token: string) {
-    this.url = url
-    this.token = token
-  }
+// Create Supabase client
+const supabase = supabaseUrl && supabaseAnonKey 
+  ? createClient(supabaseUrl, supabaseAnonKey)
+  : null
 
-  async get(key: string): Promise<string | null> {
-    const response = await fetch(`${this.url}/get/${key}`, {
-      headers: {
-        Authorization: `Bearer ${this.token}`,
-      },
-    })
-    
-    if (!response.ok) return null
-    
-    const data = await response.json()
-    return data.result
-  }
+// Table name
+const TABLE_NAME = 'testimonials'
 
-  async set(key: string, value: string): Promise<boolean> {
-    const response = await fetch(`${this.url}/set/${key}`, {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${this.token}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ value }),
-    })
-    
-    return response.ok
-  }
-}
-
-// Get Redis client (returns null if not configured)
-function getRedisClient(): RedisClient | null {
-  const url = process.env.UPSTASH_REDIS_REST_URL
-  const token = process.env.UPSTASH_REDIS_REST_TOKEN
-  
-  if (!url || !token) {
-    console.log('Redis not configured, using in-memory storage')
-    return null
-  }
-  
-  return new RedisClient(url, token)
-}
-
-// In-memory fallback storage
+// In-memory fallback storage (only used when Supabase is not configured)
 let memoryStore: TestimonialType[] = [...DEFAULT_TESTIMONIALS]
 let nextId = DEFAULT_TESTIMONIALS.length + 1
-const REDIS_KEY = 'mbuzenkzetro:testimonials'
 
-// Get all testimonials
-export async function getTestimonials(): Promise<TestimonialType[]> {
-  const redis = getRedisClient()
+/**
+ * Initialize database with default testimonials if empty
+ */
+async function initializeDatabase(): Promise<void> {
+  if (!supabase) return
   
-  if (redis) {
-    try {
-      const data = await redis.get(REDIS_KEY)
-      if (data) {
-        return JSON.parse(data)
+  try {
+    // Check if table is empty
+    const { data, error } = await supabase
+      .from(TABLE_NAME)
+      .select('id')
+      .limit(1)
+    
+    if (error) {
+      console.error('Error checking testimonials:', error)
+      return
+    }
+    
+    // If empty, insert default testimonials
+    if (!data || data.length === 0) {
+      console.log('Initializing database with default testimonials...')
+      
+      const { error: insertError } = await supabase
+        .from(TABLE_NAME)
+        .insert(DEFAULT_TESTIMONIALS.map(t => ({
+          name: t.name,
+          role: t.role,
+          location: t.location,
+          content: t.content,
+          rating: t.rating,
+          date: t.date,
+          project: t.project,
+        })))
+      
+      if (insertError) {
+        console.error('Error inserting default testimonials:', insertError)
+      } else {
+        console.log('Default testimonials inserted successfully')
       }
-      // Initialize with defaults if empty
-      await redis.set(REDIS_KEY, JSON.stringify(DEFAULT_TESTIMONIALS))
-      return DEFAULT_TESTIMONIALS
-    } catch (error) {
-      console.error('Redis error:', error)
+    }
+  } catch (err) {
+    console.error('Error initializing database:', err)
+  }
+}
+
+// Initialize on first load
+let initialized = false
+
+/**
+ * Get all testimonials from database
+ */
+export async function getTestimonials(): Promise<TestimonialType[]> {
+  // Initialize database if using Supabase
+  if (supabase && !initialized) {
+    await initializeDatabase()
+    initialized = true
+  }
+  
+  if (supabase) {
+    try {
+      const { data, error } = await supabase
+        .from(TABLE_NAME)
+        .select('*')
+        .order('date', { ascending: false })
+      
+      if (error) {
+        console.error('Error fetching testimonials:', error)
+        return memoryStore
+      }
+      
+      if (data && data.length > 0) {
+        return data.map((t: Record<string, unknown>) => ({
+          id: t.id as number,
+          name: t.name as string,
+          role: t.role as string,
+          location: t.location as string,
+          content: t.content as string,
+          rating: t.rating as number,
+          date: t.date as string,
+          project: (t.project as string) || '',
+        }))
+      }
+      
+      return []
+    } catch (err) {
+      console.error('Error fetching testimonials:', err)
       return memoryStore
     }
   }
   
+  console.log('Supabase not configured, using in-memory storage')
   return memoryStore
 }
 
-// Add new testimonial
-export async function addTestimonial(testimonial: Omit<TestimonialType, 'id' | 'date'>): Promise<TestimonialType> {
-  const redis = getRedisClient()
-  
-  const newTestimonial: TestimonialType = {
-    id: nextId++,
+/**
+ * Add new testimonial to database
+ */
+export async function addTestimonial(
+  testimonial: Omit<TestimonialType, 'id' | 'date'>
+): Promise<TestimonialType> {
+  const newTestimonial = {
     ...testimonial,
     rating: parseInt(String(testimonial.rating)),
     date: new Date().toISOString().split('T')[0],
   }
   
-  if (redis) {
+  if (supabase) {
     try {
-      const current = await getTestimonials()
-      const updated = [newTestimonial, ...current]
-      await redis.set(REDIS_KEY, JSON.stringify(updated))
-      return newTestimonial
-    } catch (error) {
-      console.error('Redis error:', error)
+      const { data, error } = await supabase
+        .from(TABLE_NAME)
+        .insert([newTestimonial])
+        .select()
+        .single()
+      
+      if (error) {
+        console.error('Error saving testimonial:', error)
+        throw new Error('Gagal menyimpan testimoni ke database')
+      }
+      
+      return {
+        id: data.id as number,
+        name: data.name as string,
+        role: data.role as string,
+        location: data.location as string,
+        content: data.content as string,
+        rating: data.rating as number,
+        date: data.date as string,
+        project: (data.project as string) || '',
+      }
+    } catch (err) {
+      console.error('Error saving testimonial:', err)
+      throw err
     }
   }
   
-  memoryStore = [newTestimonial, ...memoryStore]
-  return newTestimonial
+  // Fallback to memory storage
+  const id = nextId++
+  const memoryTestimonial: TestimonialType = {
+    id,
+    ...newTestimonial,
+  }
+  
+  memoryStore = [memoryTestimonial, ...memoryStore]
+  
+  console.warn('Using in-memory storage - testimonials will be lost on restart!')
+  
+  return memoryTestimonial
+}
+
+/**
+ * Check if Supabase is configured
+ */
+export function isSupabaseConfigured(): boolean {
+  return !!(supabaseUrl && supabaseAnonKey)
 }
