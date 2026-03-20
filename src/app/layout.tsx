@@ -87,6 +87,99 @@ export const metadata: Metadata = {
   },
 };
 
+// JSON-LD Structured Data for Local Business
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://mbuzenkzetro.com",
+  "name": "MBUZENK ZETRO",
+  "alternateName": "Bengkel Las MBUZENK ZETRO",
+  "description": "Bengkel las dan jasa renovasi rumah terpercaya di Magetan. Spesialis kanopi, pagar besi, tangga besi, konstruksi baja, kitchen set, dan renovasi rumah lengkap.",
+  "url": "https://mbuzenkzetro.com",
+  "telephone": "+6285738602255",
+  "email": "info@mbuzenkzetro.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "CFR3+5JQ, Setro, Tebon, Kec. Bar.",
+    "addressLocality": "Magetan",
+    "addressRegion": "Jawa Timur",
+    "postalCode": "63395",
+    "addressCountry": "ID"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "-7.6516",
+    "longitude": "111.3619"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "08:00",
+      "closes": "17:00"
+    }
+  ],
+  "priceRange": "$$",
+  "image": "https://mbuzenkzetro.com/hero-image.png",
+  "logo": "https://mbuzenkzetro.com/logo.png",
+  "sameAs": [
+    "https://www.facebook.com/mbuzenk.zetro",
+    "https://www.tiktok.com/@mbah.tro.mbuzenk"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Layanan Bengkel Las & Renovasi",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Kanopi Minimalis",
+          "description": "Pembuatan kanopi carport, kanopi teras, kanopiminimalis berbagai model"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Pagar Besi",
+          "description": "Pembuatan pagar besi minimalis, pagar BRC, pagar custom"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Tangga Besi",
+          "description": "Pembuatan tangga besi, tangga putar, tangga minimalis"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Konstruksi Baja",
+          "description": "Konstruksi baja ringan, rangka atap, mezzanine"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Renovasi Rumah",
+          "description": "Jasa renovasi rumah lengkap, renovasi kamar mandi, dapur, atap"
+        }
+      }
+    ]
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "100",
+    "bestRating": "5"
+  }
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -94,6 +187,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="antialiased bg-background text-foreground">
         {children}
         <Toaster />

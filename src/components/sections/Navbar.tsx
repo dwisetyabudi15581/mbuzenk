@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Phone, Menu, X } from 'lucide-react'
@@ -8,6 +8,16 @@ import { CONFIG, NAV_LINKS, makeCall, scrollToSection } from '@/lib/config'
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const handleNavClick = (id: string) => {
     scrollToSection(id)
@@ -15,16 +25,20 @@ export function Navbar() {
   }
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-md border-b border-slate-200">
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      isScrolled 
+        ? 'bg-white/98 backdrop-blur-lg shadow-lg border-b border-slate-200' 
+        : 'bg-white/95 backdrop-blur-md shadow-md border-b border-slate-200'
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 sm:h-20">
+        <div className={`flex justify-between items-center transition-all duration-300 ${isScrolled ? 'h-14 sm:h-16' : 'h-16 sm:h-20'}`}>
           {/* Logo */}
           <button 
             onClick={() => handleNavClick('beranda')} 
             className="flex items-center gap-2 sm:gap-3 cursor-pointer hover:opacity-80 transition-opacity"
             aria-label="Kembali ke beranda"
           >
-            <div className="w-10 h-10 sm:w-12 sm:h-12 relative rounded-lg overflow-hidden shadow-lg">
+            <div className={`relative rounded-lg overflow-hidden shadow-lg transition-all duration-300 ${isScrolled ? 'w-9 h-9 sm:w-10 sm:h-10' : 'w-10 h-10 sm:w-12 sm:h-12'}`}>
               <Image 
                 src="/logo.png" 
                 alt="MBUZENK ZETRO Logo" 
@@ -34,10 +48,10 @@ export function Navbar() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-sm sm:text-lg text-slate-800 leading-tight font-brand">
+              <span className={`font-bold text-slate-800 leading-tight font-brand transition-all duration-300 ${isScrolled ? 'text-sm sm:text-base' : 'text-sm sm:text-lg'}`}>
                 {CONFIG.businessName}
               </span>
-              <span className="text-[10px] sm:text-xs text-orange-600 font-medium hidden sm:block">
+              <span className={`text-orange-600 font-medium transition-all duration-300 ${isScrolled ? 'text-[9px] sm:text-[10px]' : 'text-[10px] sm:text-xs'} hidden sm:block`}>
                 {CONFIG.tagline}
               </span>
             </div>

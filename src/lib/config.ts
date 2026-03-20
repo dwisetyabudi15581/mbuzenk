@@ -45,6 +45,7 @@ export const NAV_LINKS = [
   { id: 'layanan', label: 'Layanan' },
   { id: 'portofolio', label: 'Portofolio' },
   { id: 'testimoni', label: 'Testimoni' },
+  { id: 'faq', label: 'FAQ' },
   { id: 'kontak', label: 'Kontak' },
 ] as const;
 

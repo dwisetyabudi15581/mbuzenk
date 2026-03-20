@@ -16,6 +16,7 @@ import {
 import { Star, Send, Plus, ArrowRight, AlertCircle } from 'lucide-react'
 import { DEFAULT_TESTIMONIALS, TestimonialType } from '@/lib/data'
 import { useToast } from '@/hooks/use-toast'
+import { ScrollAnimation } from '@/components/ui/scroll-animation'
 
 export function TestimonialsSection() {
   const [testimonials, setTestimonials] = useState<TestimonialType[]>(DEFAULT_TESTIMONIALS)
@@ -143,17 +144,19 @@ export function TestimonialsSection() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Section Header */}
-          <div className="text-center mb-10 sm:mb-16">
-            <Badge variant="outline" className="border-white text-white mb-3 sm:mb-4">
-              TESTIMONI
-            </Badge>
-            <h2 className="font-brand text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
-              Apa Kata <span className="text-yellow-300">Pelanggan</span> Kami
-            </h2>
-            <p className="text-base sm:text-lg text-white/80 max-w-3xl mx-auto">
-              Kepuasan pelanggan adalah bukti nyata kualitas layanan bengkel las dan renovasi kami
-            </p>
-          </div>
+          <ScrollAnimation>
+            <div className="text-center mb-10 sm:mb-16">
+              <Badge variant="outline" className="border-white text-white mb-3 sm:mb-4">
+                TESTIMONI
+              </Badge>
+              <h2 className="font-brand text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
+                Apa Kata <span className="text-yellow-300">Pelanggan</span> Kami
+              </h2>
+              <p className="text-base sm:text-lg text-white/80 max-w-3xl mx-auto">
+                Kepuasan pelanggan adalah bukti nyata kualitas layanan bengkel las dan renovasi kami
+              </p>
+            </div>
+          </ScrollAnimation>
 
           {/* Error Message */}
           {error && (
@@ -186,60 +189,63 @@ export function TestimonialsSection() {
             /* Testimonials Grid */
             <div className="grid sm:grid-cols-3 gap-6 sm:gap-8">
               {displayTestimonials.map((testimonial, index) => (
-                <Card 
-                  key={testimonial.id || index} 
-                  onClick={() => setIsDialogOpen(true)}
-                  className="bg-white/10 backdrop-blur-md border-white/20 hover:bg-white/20 transition-colors cursor-pointer"
-                >
-                  <CardContent className="p-4 sm:p-6">
-                    {/* Stars */}
-                    <div className="flex gap-1 mb-3 sm:mb-4">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-yellow-400 text-yellow-400" />
-                      ))}
-                    </div>
-
-                    {/* Content */}
-                    <p className="text-white/90 mb-4 sm:mb-6 leading-relaxed line-clamp-4 text-sm sm:text-base">
-                      &quot;{testimonial.content}&quot;
-                    </p>
-
-                    {/* Author */}
-                    <div className="flex items-center gap-3 sm:gap-4">
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center text-white font-bold text-base sm:text-lg">
-                        {testimonial.name.charAt(0)}
+                <ScrollAnimation key={testimonial.id || index} delay={index * 100}>
+                  <Card 
+                    onClick={() => setIsDialogOpen(true)}
+                    className="bg-white/10 backdrop-blur-md border-white/20 hover:bg-white/20 transition-all cursor-pointer hover:-translate-y-1 hover:shadow-xl"
+                  >
+                    <CardContent className="p-4 sm:p-6">
+                      {/* Stars */}
+                      <div className="flex gap-1 mb-3 sm:mb-4">
+                        {[...Array(testimonial.rating)].map((_, i) => (
+                          <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-yellow-400 text-yellow-400" />
+                        ))}
                       </div>
-                      <div>
-                        <div className="font-semibold text-white text-sm sm:text-base">{testimonial.name}</div>
-                        <div className="text-xs sm:text-sm text-white/70">{testimonial.role} - {testimonial.location}</div>
+
+                      {/* Content */}
+                      <p className="text-white/90 mb-4 sm:mb-6 leading-relaxed line-clamp-4 text-sm sm:text-base">
+                        &quot;{testimonial.content}&quot;
+                      </p>
+
+                      {/* Author */}
+                      <div className="flex items-center gap-3 sm:gap-4">
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center text-white font-bold text-base sm:text-lg">
+                          {testimonial.name.charAt(0)}
+                        </div>
+                        <div>
+                          <div className="font-semibold text-white text-sm sm:text-base">{testimonial.name}</div>
+                          <div className="text-xs sm:text-sm text-white/70">{testimonial.role} - {testimonial.location}</div>
+                        </div>
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
+                </ScrollAnimation>
               ))}
             </div>
           )}
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mt-8 sm:mt-12 relative z-20">
-            <Button 
-              size="lg" 
-              onClick={() => setIsDialogOpen(true)}
-              className="bg-white text-orange-600 hover:bg-white/90 shadow-lg cursor-pointer min-h-[48px] sm:min-h-[52px] px-6 sm:px-8 text-base sm:text-lg font-semibold"
-            >
-              Lihat Semua Testimoni
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </Button>
-            <Button 
-              size="lg" 
-              onClick={() => setIsFormOpen(true)}
-              variant="outline"
-              className="border-2 border-white text-white hover:bg-white/10 cursor-pointer min-h-[48px] sm:min-h-[52px] px-6 sm:px-8 text-base sm:text-lg font-semibold bg-white/10 backdrop-blur-sm"
-            >
-              <Plus className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-              Berikan Testimoni
-            </Button>
-          </div>
+          <ScrollAnimation delay={300}>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mt-8 sm:mt-12 relative z-20">
+              <Button 
+                size="lg" 
+                onClick={() => setIsDialogOpen(true)}
+                className="bg-white text-orange-600 hover:bg-white/90 shadow-lg cursor-pointer min-h-[48px] sm:min-h-[52px] px-6 sm:px-8 text-base sm:text-lg font-semibold group"
+              >
+                Lihat Semua Testimoni
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+              <Button 
+                size="lg" 
+                onClick={() => setIsFormOpen(true)}
+                variant="outline"
+                className="border-2 border-white text-white hover:bg-white/10 cursor-pointer min-h-[48px] sm:min-h-[52px] px-6 sm:px-8 text-base sm:text-lg font-semibold bg-white/10 backdrop-blur-sm"
+              >
+                <Plus className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+                Berikan Testimoni
+              </Button>
+            </div>
+          </ScrollAnimation>
         </div>
       </section>
 
