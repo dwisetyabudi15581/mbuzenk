@@ -85,6 +85,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://mbuzenkzetro.com",
   },
+  verification: {
+    google: "-kfDC-67NO6XdQIDHFe7P_Lo7iJsdnQn17Zg9U-lDYQ",
+  },
 };
 
 // JSON-LD Structured Data for Local Business
