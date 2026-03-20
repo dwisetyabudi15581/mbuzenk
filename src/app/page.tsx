@@ -68,8 +68,8 @@ const CONFIG = {
   phone2: '6285738602255',
   phone2Display: '+62 857-3860-2255',
   whatsapp: '6285738602255',
-  email: 'erlanggaraviestiawan@gmail.com',
-  email2: 'erlanggaraviestiawan@gmail.com',
+  email: 'info@mbuzenkzetro.com',
+  email2: 'sales@mbuzenkzetro.com',
   address: 'CFR3+5JQ, Setro, Tebon, Kec. Bar.',
   city: 'Kabupaten Magetan, Jawa Timur 63395', 
   
@@ -178,7 +178,7 @@ function Navbar() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-sm sm:text-lg text-slate-800 leading-tight font-[family-name:var(--font-montserrat)]">MBUZENK ZETRO</span>
+              <span className="font-bold text-sm sm:text-lg text-slate-800 leading-tight font-brand">MBUZENK ZETRO</span>
               <span className="text-[10px] sm:text-xs text-orange-600 font-medium hidden sm:block">{CONFIG.tagline}</span>
             </div>
           </button>
@@ -269,7 +269,7 @@ function HeroSection() {
           </div>
 
           {/* Main Heading */}
-          <h1 className="font-[family-name:var(--font-montserrat)] text-3xl sm:text-4xl lg:text-6xl font-bold text-white leading-tight mb-4 sm:mb-6">
+          <h1 className="font-brand text-3xl sm:text-4xl lg:text-6xl font-bold text-white leading-tight mb-4 sm:mb-6">
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">
               MBUZENK ZETRO
             </span>
@@ -309,15 +309,15 @@ function HeroSection() {
           {/* Stats */}
           <div className="grid grid-cols-3 gap-3 sm:gap-6">
             <button onClick={() => scrollToSection('portofolio')} className="text-center sm:text-left cursor-pointer hover:opacity-80 transition-opacity p-2">
-              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-orange-400 font-[family-name:var(--font-montserrat)]">{CONFIG.projectsCompleted}</div>
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-orange-400 font-brand">{CONFIG.projectsCompleted}</div>
               <div className="text-slate-400 text-xs sm:text-sm">Proyek Selesai</div>
             </button>
             <div className="text-center sm:text-left p-2">
-              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-orange-400 font-[family-name:var(--font-montserrat)]">{CONFIG.yearsExperience}</div>
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-orange-400 font-brand">{CONFIG.yearsExperience}</div>
               <div className="text-slate-400 text-xs sm:text-sm">Tahun Pengalaman</div>
             </div>
             <button onClick={() => scrollToSection('testimoni')} className="text-center sm:text-left cursor-pointer hover:opacity-80 transition-opacity p-2">
-              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-orange-400 font-[family-name:var(--font-montserrat)]">100%</div>
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-orange-400 font-brand">100%</div>
               <div className="text-slate-400 text-xs sm:text-sm">Kepuasan Klien</div>
             </button>
           </div>
@@ -357,7 +357,7 @@ function AboutSection() {
           <Badge variant="outline" className="border-orange-500 text-orange-600 mb-3 sm:mb-4">
             TENTANG KAMI
           </Badge>
-          <h2 className="font-[family-name:var(--font-montserrat)] text-2xl sm:text-3xl lg:text-5xl font-bold text-slate-800 mb-4 sm:mb-6">
+          <h2 className="font-brand text-2xl sm:text-3xl lg:text-5xl font-bold text-slate-800 mb-4 sm:mb-6">
             Kenali <span className="text-orange-600">MBUZENK ZETRO</span>
           </h2>
           <p className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto">
@@ -395,7 +395,7 @@ function AboutSection() {
 
           {/* Content */}
           <div className="space-y-4 sm:space-y-6 order-1 lg:order-2">
-            <h3 className="text-xl sm:text-2xl font-bold text-slate-800 font-[family-name:var(--font-montserrat)]">
+            <h3 className="text-xl sm:text-2xl font-bold text-slate-800 font-brand">
               Spesialis Las & Renovasi Terpercaya dengan Kualitas Premium
             </h3>
             <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
@@ -524,7 +524,7 @@ function ServicesSection() {
           <Badge variant="outline" className="border-orange-500 text-orange-400 mb-3 sm:mb-4">
             LAYANAN KAMI
           </Badge>
-          <h2 className="font-[family-name:var(--font-montserrat)] text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
+          <h2 className="font-brand text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
             Layanan <span className="text-orange-400">Las & Renovasi</span> Lengkap
           </h2>
           <p className="text-base sm:text-lg text-slate-400 max-w-3xl mx-auto">
@@ -560,7 +560,7 @@ function ServicesSection() {
                 </div>
               </div>
               <CardContent className="p-4 sm:p-6">
-                <h3 className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 font-[family-name:var(--font-montserrat)] flex items-center gap-2">
+                <h3 className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 font-brand flex items-center gap-2">
                   {service.title}
                   <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                 </h3>
@@ -663,7 +663,7 @@ function PortfolioSection() {
           <Badge variant="outline" className="border-orange-500 text-orange-600 mb-3 sm:mb-4">
             PORTOFOLIO
           </Badge>
-          <h2 className="font-[family-name:var(--font-montserrat)] text-2xl sm:text-3xl lg:text-5xl font-bold text-slate-800 mb-4 sm:mb-6">
+          <h2 className="font-brand text-2xl sm:text-3xl lg:text-5xl font-bold text-slate-800 mb-4 sm:mb-6">
             Karya <span className="text-orange-600">Terbaik</span> Kami
           </h2>
           <p className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto">
@@ -695,7 +695,7 @@ function PortfolioSection() {
 
               {/* Info */}
               <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform">
-                <h3 className="text-base sm:text-xl font-bold text-white mb-1 font-[family-name:var(--font-montserrat)] flex items-center gap-2">
+                <h3 className="text-base sm:text-xl font-bold text-white mb-1 font-brand flex items-center gap-2">
                   {project.title}
                   <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </h3>
@@ -842,7 +842,7 @@ function TestimonialsSection() {
             <Badge variant="outline" className="border-white text-white mb-3 sm:mb-4">
               TESTIMONI
             </Badge>
-            <h2 className="font-[family-name:var(--font-montserrat)] text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
+            <h2 className="font-brand text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
               Apa Kata <span className="text-yellow-300">Pelanggan</span> Kami
             </h2>
             <p className="text-base sm:text-lg text-white/80 max-w-3xl mx-auto">
@@ -913,7 +913,7 @@ function TestimonialsSection() {
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogContent className="max-w-4xl max-h-[85vh] overflow-y-auto">
           <DialogHeader>
-            <DialogTitle className="text-xl sm:text-2xl font-bold text-slate-800 font-[family-name:var(--font-montserrat)]">
+            <DialogTitle className="text-xl sm:text-2xl font-bold text-slate-800 font-brand">
               Semua Testimoni Pelanggan
             </DialogTitle>
             <DialogDescription>
@@ -973,7 +973,7 @@ function TestimonialsSection() {
       <Dialog open={isFormOpen} onOpenChange={setIsFormOpen}>
         <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto">
           <DialogHeader>
-            <DialogTitle className="text-xl sm:text-2xl font-bold text-slate-800 font-[family-name:var(--font-montserrat)]">
+            <DialogTitle className="text-xl sm:text-2xl font-bold text-slate-800 font-brand">
               Berikan Testimoni Anda
             </DialogTitle>
             <DialogDescription>
@@ -1129,7 +1129,7 @@ _Dikirim dari website MBUZENK ZETRO_`
           <Badge variant="outline" className="border-orange-500 text-orange-400 mb-3 sm:mb-4">
             HUBUNGI KAMI
           </Badge>
-          <h2 className="font-[family-name:var(--font-montserrat)] text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
+          <h2 className="font-brand text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
             Konsultasi <span className="text-orange-400">Gratis</span>
           </h2>
           <p className="text-base sm:text-lg text-slate-400 max-w-3xl mx-auto">
@@ -1228,7 +1228,7 @@ _Dikirim dari website MBUZENK ZETRO_`
           {/* Contact Form */}
           <Card className="bg-slate-800/50 border-slate-700">
             <CardContent className="p-6 sm:p-8">
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6 font-[family-name:var(--font-montserrat)]">
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6 font-brand">
                 Kirim Pesan
               </h3>
               <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
@@ -1343,7 +1343,7 @@ function Footer() {
                 />
               </div>
               <div>
-                <span className="font-bold text-base sm:text-xl text-white font-[family-name:var(--font-montserrat)]">MBUZENK ZETRO</span>
+                <span className="font-bold text-base sm:text-xl text-white font-brand">MBUZENK ZETRO</span>
                 <span className="block text-[10px] sm:text-xs text-orange-400">{CONFIG.tagline}</span>
               </div>
             </button>
