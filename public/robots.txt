@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://mbuzenkzetro.com/sitemap.xml
+Sitemap: https://www.mbuzenkzetro.com/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 10
