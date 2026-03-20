@@ -68,8 +68,8 @@ const CONFIG = {
   phone2: '6285738602255',
   phone2Display: '+62 857-3860-2255',
   whatsapp: '6285738602255',
-  email: 'info@mbuzenkzetro.com',
-  email2: 'sales@mbuzenkzetro.com',
+  email: 'erlanggaraviestiawan@gmail.com',
+  email2: 'erlanggaraviestiawan@gmail.com',
   address: 'CFR3+5JQ, Setro, Tebon, Kec. Bar.',
   city: 'Kabupaten Magetan, Jawa Timur 63395', 
   
