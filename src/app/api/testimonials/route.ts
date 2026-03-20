@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getTestimonials, addTestimonial, isSupabaseConfigured } from '@/lib/testimonials-db'
+import { getTestimonials, addTestimonial, isRedisConfigured } from '@/lib/testimonials-db'
 
 // Interface untuk testimoni
 interface Testimonial {
@@ -27,14 +27,6 @@ export async function GET() {
 // POST - Tambah testimoni baru
 export async function POST(request: NextRequest) {
   try {
-    // Check if database is configured
-    if (!isSupabaseConfigured()) {
-      return NextResponse.json({ 
-        error: 'Database belum dikonfigurasi. Silakan setup Supabase terlebih dahulu.',
-        needsSetup: true 
-      }, { status: 503 })
-    }
-
     const body = await request.json()
     const { name, role, location, content, rating, project } = body
 

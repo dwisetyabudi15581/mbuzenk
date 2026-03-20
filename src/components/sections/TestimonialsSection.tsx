@@ -13,7 +13,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog'
-import { Star, Send, Plus, ArrowRight, AlertCircle, Database } from 'lucide-react'
+import { Star, Send, Plus, ArrowRight, AlertCircle } from 'lucide-react'
 import { DEFAULT_TESTIMONIALS, TestimonialType } from '@/lib/data'
 import { useToast } from '@/hooks/use-toast'
 
@@ -24,7 +24,6 @@ export function TestimonialsSection() {
   const [isLoading, setIsLoading] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [needsSetup, setNeedsSetup] = useState(false)
   const [newTestimonial, setNewTestimonial] = useState({
     name: '',
     role: '',
@@ -42,9 +41,9 @@ export function TestimonialsSection() {
         setIsLoading(true)
         setError(null)
         const response = await fetch('/api/testimonials')
-        const data = await response.json()
         
         if (response.ok) {
+          const data = await response.json()
           if (data && data.length > 0) {
             const formattedData = data.map((t: TestimonialType) => ({
               id: t.id,
@@ -58,15 +57,12 @@ export function TestimonialsSection() {
             }))
             setTestimonials(formattedData)
           }
-        } else if (data.needsSetup) {
-          setNeedsSetup(true)
-          setError('Database belum dikonfigurasi. Hubungi admin untuk setup.')
         } else {
-          throw new Error(data.error || 'Gagal memuat testimoni')
+          throw new Error('Gagal memuat testimoni')
         }
       } catch (err) {
         console.error('Error fetching testimonials:', err)
-        setError('Tidak dapat memuat testimoni. Menampilkan data default.')
+        setError('Menampilkan testimoni default.')
       } finally {
         setIsLoading(false)
       }
@@ -77,15 +73,6 @@ export function TestimonialsSection() {
   // Submit testimoni ke database
   const handleSubmitTestimonial = async (e: React.FormEvent) => {
     e.preventDefault()
-    
-    if (needsSetup) {
-      toast({
-        title: 'Database Belum Siap',
-        description: 'Hubungi admin untuk mengkonfigurasi database.',
-        variant: 'destructive',
-      })
-      return
-    }
     
     setIsSubmitting(true)
     try {
@@ -125,14 +112,7 @@ export function TestimonialsSection() {
         
         toast({
           title: 'Berhasil!',
-          description: 'Testimoni Anda telah berhasil dikirim.',
-        })
-      } else if (data.needsSetup) {
-        setNeedsSetup(true)
-        toast({
-          title: 'Database Belum Siap',
-          description: 'Hubungi admin untuk mengkonfigurasi database.',
-          variant: 'destructive',
+          description: 'Testimoni Anda telah berhasil dikirim dan tersimpan.',
         })
       } else {
         throw new Error(data.error || 'Gagal menyimpan testimoni')
@@ -334,19 +314,6 @@ export function TestimonialsSection() {
               Bagikan pengalaman Anda menggunakan jasa bengkel las dan renovasi kami
             </DialogDescription>
           </DialogHeader>
-
-          {/* Warning jika database belum siap */}
-          {needsSetup && (
-            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 flex items-start gap-3">
-              <Database className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
-              <div>
-                <p className="text-yellow-800 font-medium text-sm">Database Belum Dikonfigurasi</p>
-                <p className="text-yellow-700 text-xs mt-1">
-                  Testimoni tidak akan tersimpan permanen. Hubungi admin untuk setup database.
-                </p>
-              </div>
-            </div>
-          )}
           
           <form onSubmit={handleSubmitTestimonial} className="space-y-4 mt-4">
             <div>
@@ -446,7 +413,7 @@ export function TestimonialsSection() {
               <Button 
                 type="submit"
                 className="flex-1 bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white cursor-pointer min-h-[48px]"
-                disabled={isSubmitting || needsSetup}
+                disabled={isSubmitting}
               >
                 {isSubmitting ? (
                   <span className="flex items-center gap-2">
