@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Montserrat } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
@@ -19,13 +19,22 @@ const montserrat = Montserrat({
   weight: ["400", "500", "600", "700", "800"],
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  themeColor: "#f97316",
+};
+
 export const metadata: Metadata = {
   title: "MBUZENK ZETRO - Spesialis Las & Renovasi Magetan",
   description: "Spesialis las dan renovasi terpercaya di Magetan. Melayani kanopi, pagar, tangga besi, konstruksi baja, dan renovasi rumah. Pengalaman 19+ tahun dengan 1000+ proyek selesai.",
   keywords: ["las magetan", "kanopi", "pagar besi", "tangga besi", "renovasi rumah", "konstruksi baja", "renovasi magetan", "MBUZENK ZETRO"],
   authors: [{ name: "MBUZENK ZETRO" }],
   icons: {
-    icon: "/logo.svg",
+    icon: "/logo-icon.png",
+    apple: "/logo-icon.png",
   },
   openGraph: {
     title: "MBUZENK ZETRO - Spesialis Las & Renovasi",

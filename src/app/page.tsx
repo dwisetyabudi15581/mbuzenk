@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
@@ -168,8 +169,13 @@ function Navbar() {
             onClick={() => handleNavClick('beranda')} 
             className="flex items-center gap-2 sm:gap-3 cursor-pointer hover:opacity-80 transition-opacity"
           >
-            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg flex items-center justify-center shadow-lg">
-              <Wrench className="w-5 h-5 sm:w-7 sm:h-7 text-white" />
+            <div className="w-10 h-10 sm:w-12 sm:h-12 relative rounded-lg overflow-hidden shadow-lg">
+              <Image 
+                src="/logo.png" 
+                alt="MBUZENK ZETRO Logo" 
+                fill
+                className="object-cover"
+              />
             </div>
             <div className="flex flex-col">
               <span className="font-bold text-sm sm:text-lg text-slate-800 leading-tight font-[family-name:var(--font-montserrat)]">MBUZENK ZETRO</span>
@@ -724,24 +730,11 @@ function PortfolioSection() {
 // TESTIMONIALS SECTION - FIXED BUTTONS VISIBILITY
 // =============================================
 function TestimonialsSection() {
-  // Initialize testimonials with a lazy initializer to avoid the effect
-  const [testimonials, setTestimonials] = useState<TestimonialType[]>(() => {
-    // Only run on client side
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('testimonials')
-      if (saved) {
-        try {
-          const parsed = JSON.parse(saved) as TestimonialType[]
-          return [...defaultTestimonials, ...parsed]
-        } catch {
-          return defaultTestimonials
-        }
-      }
-    }
-    return defaultTestimonials
-  })
+  const [testimonials, setTestimonials] = useState<TestimonialType[]>(defaultTestimonials)
   const [isDialogOpen, setIsDialogOpen] = useState(false)
   const [isFormOpen, setIsFormOpen] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [newTestimonial, setNewTestimonial] = useState({
     name: '',
     role: '',
@@ -751,34 +744,84 @@ function TestimonialsSection() {
     project: '',
   })
 
-  // Save new testimonial
-  const handleSubmitTestimonial = (e: React.FormEvent) => {
+  // Fetch testimoni dari database
+  useEffect(() => {
+    async function fetchTestimonials() {
+      try {
+        setIsLoading(true)
+        const response = await fetch('/api/testimonials')
+        if (response.ok) {
+          const data = await response.json()
+          if (data && data.length > 0) {
+            // Format data dari database
+            const formattedData = data.map((t: TestimonialType) => ({
+              id: t.id,
+              name: t.name,
+              role: t.role,
+              location: t.location,
+              content: t.content,
+              rating: t.rating,
+              date: new Date(t.date).toISOString().split('T')[0],
+              project: t.project || '',
+            }))
+            setTestimonials(formattedData)
+          }
+        }
+      } catch (error) {
+        console.error('Error fetching testimonials:', error)
+        // Jika error, tetap gunakan default testimonials
+      } finally {
+        setIsLoading(false)
+      }
+    }
+    fetchTestimonials()
+  }, [])
+
+  // Submit testimoni ke database
+  const handleSubmitTestimonial = async (e: React.FormEvent) => {
     e.preventDefault()
     
-    const newT: TestimonialType = {
-      id: Date.now(),
-      ...newTestimonial,
-      date: new Date().toISOString().split('T')[0],
+    setIsSubmitting(true)
+    try {
+      const response = await fetch('/api/testimonials', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newTestimonial),
+      })
+
+      if (response.ok) {
+        const savedTestimonial = await response.json()
+        // Format data dari database
+        const formatted = {
+          id: savedTestimonial.id,
+          name: savedTestimonial.name,
+          role: savedTestimonial.role,
+          location: savedTestimonial.location,
+          content: savedTestimonial.content,
+          rating: savedTestimonial.rating,
+          date: new Date(savedTestimonial.date).toISOString().split('T')[0],
+          project: savedTestimonial.project || '',
+        }
+        setTestimonials(prev => [formatted, ...prev])
+        
+        // Reset form
+        setNewTestimonial({
+          name: '',
+          role: '',
+          location: '',
+          content: '',
+          rating: 5,
+          project: '',
+        })
+        setIsFormOpen(false)
+      }
+    } catch (error) {
+      console.error('Error submitting testimonial:', error)
+    } finally {
+      setIsSubmitting(false)
     }
-    
-    const updated = [...testimonials, newT]
-    setTestimonials(updated)
-    
-    // Save only custom testimonials to localStorage
-    const customTestimonials = updated.filter(t => !defaultTestimonials.find(d => d.id === t.id))
-    localStorage.setItem('testimonials', JSON.stringify(customTestimonials))
-    
-    // Reset form
-    setNewTestimonial({
-      name: '',
-      role: '',
-      location: '',
-      content: '',
-      rating: 5,
-      project: '',
-    })
-    
-    setIsFormOpen(false)
   }
 
   // Display testimonials (show only 3 on homepage)
@@ -1291,8 +1334,13 @@ function Footer() {
               onClick={() => scrollToSection('beranda')}
               className="flex items-center gap-2 sm:gap-3 mb-4 cursor-pointer hover:opacity-80 transition-opacity"
             >
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg flex items-center justify-center shadow-lg">
-                <Wrench className="w-5 h-5 sm:w-7 sm:h-7 text-white" />
+              <div className="w-10 h-10 sm:w-12 sm:h-12 relative rounded-lg overflow-hidden shadow-lg">
+                <Image 
+                  src="/logo.png" 
+                  alt="MBUZENK ZETRO Logo" 
+                  fill
+                  className="object-cover"
+                />
               </div>
               <div>
                 <span className="font-bold text-base sm:text-xl text-white font-[family-name:var(--font-montserrat)]">MBUZENK ZETRO</span>
