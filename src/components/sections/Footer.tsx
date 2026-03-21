@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { MessageCircle, Facebook } from 'lucide-react'
 import { CONFIG, NAV_LINKS, openWhatsApp, scrollToSection } from '@/lib/config'
 import { FOOTER_SERVICES } from '@/lib/data'
@@ -9,7 +10,7 @@ export function Footer() {
   return (
     <footer className="bg-slate-950 pt-12 sm:pt-16 pb-6 sm:pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 sm:mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8 sm:mb-12">
           {/* Brand */}
           <div className="lg:col-span-2">
             <button 
@@ -100,6 +101,36 @@ export function Footer() {
                   </button>
                 </li>
               ))}
+            </ul>
+          </div>
+
+          {/* Area Layanan - SEO Local */}
+          <div>
+            <h4 className="font-semibold text-white mb-3 sm:mb-4 text-sm sm:text-base">Area Layanan</h4>
+            <ul className="space-y-2 sm:space-y-3">
+              <li>
+                <Link href="/area-layanan/madiun" className="text-slate-400 hover:text-orange-400 transition-colors text-xs sm:text-sm py-1 block">
+                  Bengkel Las Madiun
+                </Link>
+              </li>
+              <li>
+                <Link href="/area-layanan/ngawi" className="text-slate-400 hover:text-orange-400 transition-colors text-xs sm:text-sm py-1 block">
+                  Bengkel Las Ngawi
+                </Link>
+              </li>
+              <li>
+                <Link href="/area-layanan/ponorogo" className="text-slate-400 hover:text-orange-400 transition-colors text-xs sm:text-sm py-1 block">
+                  Bengkel Las Ponorogo
+                </Link>
+              </li>
+              <li>
+                <button 
+                  onClick={() => openWhatsApp('Halo, apakah bisa melayani daerah saya?')}
+                  className="text-slate-400 hover:text-orange-400 transition-colors cursor-pointer text-xs sm:text-sm py-1"
+                >
+                  Area Lainnya →
+                </button>
+              </li>
             </ul>
           </div>
         </div>
