@@ -11,37 +11,57 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://mbuzenkzetro.com'),
-  title: "MBUZENK ZETRO - Bengkel Las & Renovasi Rumah Magetan | Spesialis Konstruksi Baja",
-  description: "Bengkel las dan jasa renovasi rumah terpercaya di Magetan. Spesialis kanopi, pagar besi, tangga besi, konstruksi baja, kitchen set, dan renovasi rumah lengkap. Pengalaman 19+ tahun, 1000+ proyek selesai. Melayani Magetan, Madiun, Ngawi, Ponorogo.",
+  metadataBase: new URL('https://www.mbuzenkzetro.com'),
+  title: "Bengkel Las Magetan | Renovasi Rumah & Konstruksi Baja - MBUZENK ZETRO",
+  description: "Bengkel las Magetan terpercaya sejak 2005. Jasa renovasi rumah, kanopi minimalis, pagar besi, tangga besi, konstruksi baja, kitchen set. 1000+ proyek selesai. Gratis survei! Hubungi: 0857-3860-2255. Melayani Magetan, Madiun, Ngawi, Ponorogo.",
   keywords: [
-    // Keywords utama
+    // Keywords utama - high volume
+    "bengkel las magetan",
+    "las magetan",
+    "renovasi rumah magetan",
+    "tukang las magetan",
     "bengkel las",
     "renovasi rumah",
-    "las magetan",
-    "renovasi magetan",
-    // Keywords spesifik layanan
-    "kanopi minimalis",
-    "pagar besi",
+    // Keywords layanan las
+    "kanopi minimalis magetan",
+    "kanopi carport",
+    "pagar besi magetan",
+    "pagar minimalis",
     "tangga besi",
-    "konstruksi baja",
-    "kitchen set",
-    "renovasi kamar mandi",
+    "tangga spiral",
     "teralis jendela",
+    "konstruksi baja",
+    "baja ringan",
     "pergola",
+    "kanopi baja ringan",
+    // Keywords layanan renovasi
+    "renovasi kamar mandi",
+    "kitchen set magetan",
+    "renovasi dapur",
+    "renovasi atap",
+    "renovasi total rumah",
     // Keywords lokasi
     "las madiun",
     "las ngawi",
     "las ponorogo",
     "renovasi madiun",
     "renovasi ngawi",
-    // Keywords tambahan
-    "tukang las magetan",
-    "jasa las magetan",
-    "bengkel las magetan",
-    "spesialis las",
-    "kontraktor renovasi",
+    "renovasi ponorogo",
+    "bengkel las madiun",
+    "bengkel las ngawi",
+    // Keywords long-tail
+    "jasa las besi magetan",
+    "pembuatan kanopi magetan",
+    "pembuatan pagar besi",
+    "toko besi magetan",
+    "harga kanopi minimalis",
+    "harga pagar besi",
+    "spesialis las magetan",
+    "kontraktor renovasi magetan",
+    "jasa renovasi rumah terpercaya",
+    // Brand
     "MBUZENK ZETRO",
+    "mbuzenkzetro",
   ],
   authors: [{ name: "MBUZENK ZETRO" }],
   creator: "MBUZENK ZETRO",
@@ -62,28 +82,28 @@ export const metadata: Metadata = {
     apple: "/logo-icon.png",
   },
   openGraph: {
-    title: "MBUZENK ZETRO - Bengkel Las & Renovasi Rumah Magetan",
-    description: "Bengkel las dan jasa renovasi rumah terpercaya. Spesialis kanopi, pagar besi, tangga besi, konstruksi baja. Pengalaman 19+ tahun, 1000+ proyek selesai.",
+    title: "Bengkel Las Magetan | Renovasi Rumah & Konstruksi Baja - MBUZENK ZETRO",
+    description: "Bengkel las Magetan terpercaya sejak 2005. Jasa renovasi rumah, kanopi minimalis, pagar besi, tangga besi, konstruksi baja. 1000+ proyek selesai. Gratis survei! Hubungi: 0857-3860-2255.",
     type: "website",
     locale: "id_ID",
-    siteName: "MBUZENK ZETRO",
+    siteName: "MBUZENK ZETRO - Bengkel Las Magetan",
     images: [
       {
         url: "/hero-image.png",
         width: 1200,
         height: 630,
-        alt: "MBUZENK ZETRO - Bengkel Las & Renovasi Magetan",
+        alt: "Bengkel Las MBUZENK ZETRO Magetan - Spesialis Kanopi, Pagar Besi, Renovasi Rumah",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "MBUZENK ZETRO - Bengkel Las & Renovasi Rumah Magetan",
-    description: "Bengkel las dan jasa renovasi rumah terpercaya. Spesialis kanopi, pagar, tangga besi, konstruksi baja.",
+    title: "Bengkel Las Magetan | Renovasi Rumah - MBUZENK ZETRO",
+    description: "Bengkel las terpercaya sejak 2005. Kanopi, pagar besi, tangga, konstruksi baja, renovasi rumah. 1000+ proyek selesai. Gratis survei!",
     images: ["/hero-image.png"],
   },
   alternates: {
-    canonical: "https://mbuzenkzetro.com",
+    canonical: "https://www.mbuzenkzetro.com",
   },
   verification: {
     google: "-kfDC-67NO6XdQIDHFe7P_Lo7iJsdnQn17Zg9U-lDYQ",
@@ -94,11 +114,11 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "https://mbuzenkzetro.com",
+  "@id": "https://www.mbuzenkzetro.com",
   "name": "MBUZENK ZETRO",
   "alternateName": "Bengkel Las MBUZENK ZETRO",
   "description": "Bengkel las dan jasa renovasi rumah terpercaya di Magetan. Spesialis kanopi, pagar besi, tangga besi, konstruksi baja, kitchen set, dan renovasi rumah lengkap.",
-  "url": "https://mbuzenkzetro.com",
+  "url": "https://www.mbuzenkzetro.com",
   "telephone": "+6285738602255",
   "email": "info@mbuzenkzetro.com",
   "address": {
@@ -123,8 +143,8 @@ const jsonLd = {
     }
   ],
   "priceRange": "$$",
-  "image": "https://mbuzenkzetro.com/hero-image.png",
-  "logo": "https://mbuzenkzetro.com/logo.png",
+  "image": "https://www.mbuzenkzetro.com/hero-image.png",
+  "logo": "https://www.mbuzenkzetro.com/logo.png",
   "sameAs": [
     "https://www.facebook.com/mbuzenk.zetro",
     "https://www.tiktok.com/@mbah.tro.mbuzenk"
@@ -138,7 +158,7 @@ const jsonLd = {
         "itemOffered": {
           "@type": "Service",
           "name": "Kanopi Minimalis",
-          "description": "Pembuatan kanopi carport, kanopi teras, kanopiminimalis berbagai model"
+          "description": "Pembuatan kanopi carport, kanopi teras, kanopi minimalis berbagai model"
         }
       },
       {
@@ -183,6 +203,62 @@ const jsonLd = {
   }
 };
 
+// FAQ Schema for Rich Snippets
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Berapa lama waktu pengerjaan kanopi minimalis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Waktu pengerjaan kanopi minimalis biasanya 3-7 hari kerja tergantung ukuran dan kompleksitas desain. Untuk kanopi carport standar (3x5 meter), pengerjaan membutuhkan waktu sekitar 4-5 hari kerja termasuk pengukuran, fabrikasi, dan instalasi."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Apakah ada garansi untuk hasil pekerjaan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ya, kami memberikan garansi untuk setiap pekerjaan. Garansi konstruksi besi hingga 2 tahun, garansi finishing cat 6 bulan, dan garansi service gratis seumur hidup untuk pelanggan setia."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Apa saja layanan renovasi rumah yang ditawarkan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kami menyediakan layanan renovasi rumah lengkap meliputi: renovasi atap, renovasi kamar mandi, renovasi dapur, pembuatan kitchen set, pergola, teralis, tangga besi, dan konstruksi baja ringan."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Apakah melayani area di luar Magetan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ya, kami melayani area Magetan, Madiun, Ngawi, Ponorogo, dan sekitarnya. Untuk lokasi di luar radius 30km dari bengkel, akan ada tambahan biaya transportasi yang akan diinformasikan saat survei lokasi gratis."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Berapa biaya survei lokasi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Survei lokasi GRATIS untuk area Magetan dan sekitarnya. Tim kami akan datang untuk pengukuran dan konsultasi langsung di lokasi Anda."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Bagaimana sistem pembayarannya?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sistem pembayaran kami fleksibel: DP 50% untuk memulai pengerjaan, pelunasan setelah pekerjaan selesai dan disetujui. Kami juga menerima pembayaran bertahap untuk proyek besar."
+      }
+    }
+  ]
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -194,6 +270,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       </head>
       <body className="antialiased bg-background text-foreground">
