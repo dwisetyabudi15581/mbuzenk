@@ -11,6 +11,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 1,
     },
+    // Gallery Page
+    {
+      url: `${baseUrl}/galeri`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    // FAQ Page
+    {
+      url: `${baseUrl}/faq-harga`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
     // SEO Landing Pages - HIGH PRIORITY
     {
       url: `${baseUrl}/layanan/bengkel-las`,
@@ -116,12 +130,41 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
-    // FAQ Page
     {
-      url: `${baseUrl}/faq-harga`,
+      url: `${baseUrl}/artikel/model-kanopi-terbaru-2024`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.7,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/artikel/pentingnya-teralis-jendela`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/artikel/cara-memilih-pagar-minimalis`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/artikel/perawatan-kanopi-besi`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/artikel/manfaat-renovasi-rumah`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/artikel/tips-memilih-kontraktor`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
     },
     // Section Anchors
     {
