@@ -1,17 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getTestimonials, addTestimonial, isRedisConfigured } from '@/lib/testimonials-db'
-
-// Interface untuk testimoni
-interface Testimonial {
-  id: number
-  name: string
-  role: string
-  location: string
-  content: string
-  rating: number
-  date: string
-  project: string
-}
+import { getTestimonials, addTestimonial } from '@/lib/testimonials-db'
 
 // GET - Ambil semua testimoni
 export async function GET() {
