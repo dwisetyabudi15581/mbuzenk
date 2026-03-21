@@ -10,8 +10,9 @@ import { CONFIG, openWhatsApp, makeCall } from '@/lib/config'
 import { ScrollAnimation } from '@/components/ui/scroll-animation'
 import { useState } from 'react'
 
-// Data proyek yang lebih natural dan realistis
+// Data proyek yang lebih natural dan realistis - diperbanyak
 const semuaProyek = [
+  // KANOPI
   {
     id: 1,
     judul: 'Kanopi Carport Rumah Pak Budi',
@@ -24,83 +25,211 @@ const semuaProyek = [
   },
   {
     id: 2,
-    judul: 'Pagar Minimalis Rumah Bu Siti',
-    kategori: 'Pagar',
-    lokasi: 'Madiun',
-    tahun: '2024',
-    deskripsi: 'Pagar hollow minimalis tinggi 1.7m dengan pintu dorong lebar 3.5m. Finishing powder coating abu-abu, termasuk pemasangan.',
-    image: '/project-pagar.png',
-    highlight: true,
-  },
-  {
-    id: 3,
-    judul: 'Tangga Spiral Rumah Pak Agus',
-    kategori: 'Tangga',
-    lokasi: 'Ngawi',
-    tahun: '2023',
-    deskripsi: 'Tangga spiral besi hollow dengan diameter 1.2m, naik ke lantai 2. Pegangan stainless, anak tangga plat besi anti slip.',
-    image: '/project-tangga.png',
-    highlight: false,
-  },
-  {
-    id: 4,
-    judul: 'Teralis Jendela Komplek Perumahan',
-    kategori: 'Teralis',
-    lokasi: 'Magetan',
-    tahun: '2024',
-    deskripsi: 'Pemasangan teralis jendela untuk 8 unit rumah. Model minimalis, besi hollow 20x20, cat duco putih. Selesai dalam 1 minggu.',
-    image: '/project-teralis.png',
-    highlight: true,
-  },
-  {
-    id: 5,
-    judul: 'Renovasi Dapur & Kamar Mandi',
-    kategori: 'Renovasi',
-    lokasi: 'Ponorogo',
-    tahun: '2024',
-    deskripsi: 'Renovasi total dapur dan 2 kamar mandi. Termasuk plumbing, keramik, dan instalasi listrik. Durasi 3 minggu.',
-    image: '/project-kitchen.png',
-    highlight: false,
-  },
-  {
-    id: 6,
-    judul: 'Pergola Taman Belakang',
+    judul: 'Kanopi Teras Rumah Bu Siti',
     kategori: 'Kanopi',
     lokasi: 'Madiun',
-    tahun: '2023',
-    deskripsi: 'Pergola kayu dan besi untuk area taman belakang ukuran 3x4 meter. Cat wood paint warna coklat natural, atap polikarbonat.',
+    tahun: '2024',
+    deskripsi: 'Kanopi teras ukuran 3x8 meter, rangka baja ringan dengan atap alderon. Warna coklat kayu, meng-cover area depan rumah.',
     image: '/project-pergola.png',
     highlight: false,
   },
   {
+    id: 3,
+    judul: 'Kanopi Pagar Rumah Pak Darmo',
+    kategori: 'Kanopi',
+    lokasi: 'Ngawi',
+    tahun: '2023',
+    deskripsi: 'Kanopi pagar ukuran 2x5 meter, rangka besi hollow dengan atap polikarbonat bening. Cocok untuk area parkir motor.',
+    image: '/project-kanopi.png',
+    highlight: false,
+  },
+  {
+    id: 4,
+    judul: 'Pergola Taman Bu Ratna',
+    kategori: 'Kanopi',
+    lokasi: 'Ponorogo',
+    tahun: '2024',
+    deskripsi: 'Pergola kayu besi ukuran 3x4 meter untuk area BBQ di taman belakang. Atap polikarbonat, finishing cat kayu natural.',
+    image: '/project-pergola.png',
+    highlight: false,
+  },
+
+  // PAGAR
+  {
+    id: 5,
+    judul: 'Pagar Minimalis Rumah Pak Agus',
+    kategori: 'Pagar',
+    lokasi: 'Magetan',
+    tahun: '2024',
+    deskripsi: 'Pagar hollow minimalis tinggi 1.7m dengan pintu dorong lebar 3.5m. Finishing powder coating abu-abu, total panjang 15 meter.',
+    image: '/project-pagar.png',
+    highlight: true,
+  },
+  {
+    id: 6,
+    judul: 'Pagar BRC Perumahan Griya Asri',
+    kategori: 'Pagar',
+    lokasi: 'Madiun',
+    tahun: '2024',
+    deskripsi: 'Pagar BRC tinggi 1.5m untuk 6 unit rumah. Galvanis anti karat, pemasangan cepat 2 hari selesai semua.',
+    image: '/project-pagar.png',
+    highlight: false,
+  },
+  {
     id: 7,
-    judul: 'Renovasi Atap Rumah Pak Darmo',
+    judul: 'Pagar Custom Rumah Bu Kartini',
+    kategori: 'Pagar',
+    lokasi: 'Ngawi',
+    tahun: '2023',
+    deskripsi: 'Pagar custom dengan ornamen minimalis, tinggi 1.8m. Motif kotak-kotak modern, cat duco hitam glossy.',
+    image: '/project-pagar.png',
+    highlight: false,
+  },
+
+  // TANGGA
+  {
+    id: 8,
+    judul: 'Tangga Spiral Rumah Pak Hendro',
+    kategori: 'Tangga',
+    lokasi: 'Magetan',
+    tahun: '2024',
+    deskripsi: 'Tangga spiral besi hollow dengan diameter 1.2m, naik ke lantai 2. Pegangan stainless, anak tangga plat besi anti slip.',
+    image: '/project-tangga.png',
+    highlight: true,
+  },
+  {
+    id: 9,
+    judul: 'Tangga Lurus Rumah Bu Sri',
+    kategori: 'Tangga',
+    lokasi: 'Madiun',
+    tahun: '2024',
+    deskripsi: 'Tangga lurus besi hollow 14 anak tangga, pegangan kombinasi besi dan kayu. Lebar 90cm, finishing cat duco putih.',
+    image: '/project-tangga.png',
+    highlight: false,
+  },
+  {
+    id: 10,
+    judul: 'Tangga U Rumah Pak Widodo',
+    kategori: 'Tangga',
+    lokasi: 'Ponorogo',
+    tahun: '2023',
+    deskripsi: 'Tangga bentuk U dengan bordes di tengah. Rangka besi hollow tebal, anak tangga plat bording. Ukuran compact untuk rumah minimalis.',
+    image: '/project-tangga.png',
+    highlight: false,
+  },
+
+  // TERALIS
+  {
+    id: 11,
+    judul: 'Teralis Jendela Rumah Pak Joko',
+    kategori: 'Teralis',
+    lokasi: 'Magetan',
+    tahun: '2024',
+    deskripsi: 'Teralis jendela minimalis untuk 6 jendela. Besi hollow 20x20, jarak antar besi 12cm. Cat duco putih, finishing rapi.',
+    image: '/project-teralis.png',
+    highlight: true,
+  },
+  {
+    id: 12,
+    judul: 'Teralis Security Rumah Bu Ani',
+    kategori: 'Teralis',
+    lokasi: 'Madiun',
+    tahun: '2024',
+    deskripsi: 'Teralis security dengan besi tebal 14mm untuk jendela depan. Model minimalis tapi kuat, dilengkapi kunci dari dalam.',
+    image: '/project-teralis.png',
+    highlight: false,
+  },
+  {
+    id: 13,
+    judul: 'Teralis Artistik Rumah Pak Slamet',
+    kategori: 'Teralis',
+    lokasi: 'Ngawi',
+    tahun: '2023',
+    deskripsi: 'Teralis dengan ornamen batik untuk 4 jendela. Desain custom sesuai permintaan pemilik, finishing powder coating hitam.',
+    image: '/project-teralis.png',
+    highlight: false,
+  },
+  {
+    id: 14,
+    judul: 'Teralis Pintu Belakang Bu Dewi',
+    kategori: 'Teralis',
+    lokasi: 'Ponorogo',
+    tahun: '2024',
+    deskripsi: 'Teralis pintu belakang dengan model minimalis. Besi hollow 20x20, dilengkapi engsel dan kunci, bisa dibuka untuk jalan keluar.',
+    image: '/project-teralis.png',
+    highlight: false,
+  },
+
+  // RENOVASI
+  {
+    id: 15,
+    judul: 'Renovasi Dapur Bu Rina',
     kategori: 'Renovasi',
     lokasi: 'Magetan',
     tahun: '2024',
-    deskripsi: 'Penggantian atap genteng ke spandek, perbaikan konstruksi kayu yang sudah lapuk. Ukuran 8x12 meter, selesai 5 hari.',
+    deskripsi: 'Renovasi total dapur ukuran 3x4 meter. Kitchen set baru, instalasi air dan listrik, keramik backsplash, selesai 1 minggu.',
+    image: '/project-kitchen.png',
+    highlight: true,
+  },
+  {
+    id: 16,
+    judul: 'Renovasi Kamar Mandi Pak Eko',
+    kategori: 'Renovasi',
+    lokasi: 'Madiun',
+    tahun: '2024',
+    deskripsi: 'Renovasi 2 kamar mandi dengan desain modern. Shower area, closet duduk, wastafel, keramik full dinding 2 meter.',
+    image: '/project-kamar-mandi.png',
+    highlight: false,
+  },
+  {
+    id: 17,
+    judul: 'Renovasi Atap Rumah Bu Sarmi',
+    kategori: 'Renovasi',
+    lokasi: 'Ngawi',
+    tahun: '2024',
+    deskripsi: 'Penggantian atap genteng ke spandek rangka baja ringan. Ukuran 8x12 meter, perbaikan usuk yang lapuk, selesai 5 hari.',
     image: '/project-atap.png',
     highlight: true,
   },
   {
-    id: 8,
-    judul: 'Renovasi Kamar Mandi Modern',
+    id: 18,
+    judul: 'Renovasi Total Rumah Pak Tono',
     kategori: 'Renovasi',
-    lokasi: 'Ngawi',
+    lokasi: 'Ponorogo',
+    tahun: '2023',
+    deskripsi: 'Renovasi total rumah tinggal 60m2. Termasuk atap, plafon, lantai, kamar mandi, dan dapur. Durasi 6 minggu.',
+    image: '/project-renovasi.png',
+    highlight: true,
+  },
+  {
+    id: 19,
+    judul: 'Perluasan Rumah Bu Wati',
+    kategori: 'Renovasi',
+    lokasi: 'Magetan',
     tahun: '2024',
-    deskripsi: 'Renovasi kamar mandi dengan desain modern. Shower area, closet duduk, wastafel, dan keramik full dinding.',
-    image: '/project-kamar-mandi.png',
+    deskripsi: 'Perluasan ruang tamu dan kamar tidur. Konstruksi baru 20m2, pondasi, dinding bata, plafon dan lantai keramik.',
+    image: '/project-renovasi.png',
+    highlight: false,
+  },
+  {
+    id: 20,
+    judul: 'Renovasi Teras Rumah Pak Surya',
+    kategori: 'Renovasi',
+    lokasi: 'Madiun',
+    tahun: '2024',
+    deskripsi: 'Renovasi teras dengan penambahan kanopi dan lantai keramik. Ukuran 2x6 meter, cat ulang tembok, finishing 3 hari.',
+    image: '/project-kanopi.png',
     highlight: false,
   },
 ]
 
 const kategoriList = [
-  { nama: 'Semua', count: 8 },
-  { nama: 'Kanopi', count: 2 },
-  { nama: 'Pagar', count: 1 },
-  { nama: 'Tangga', count: 1 },
-  { nama: 'Teralis', count: 1 },
-  { nama: 'Renovasi', count: 3 },
+  { nama: 'Semua', count: 20 },
+  { nama: 'Kanopi', count: 4 },
+  { nama: 'Pagar', count: 3 },
+  { nama: 'Tangga', count: 3 },
+  { nama: 'Teralis', count: 4 },
+  { nama: 'Renovasi', count: 6 },
 ]
 
 const stats = [
@@ -261,22 +390,15 @@ export default function GalleryPage() {
           ))}
         </div>
 
-        {/* Load More / CTA */}
-        {filteredProyek.length >= 8 && (
-          <div className="text-center mt-8">
-            <p className="text-slate-500 text-sm mb-4">
-              Ingin lihat lebih banyak? Kunjungi workshop kami atau hubungi via WhatsApp
-            </p>
-            <Button 
-              onClick={() => openWhatsApp('Halo, saya mau lihat lebih banyak contoh proyek.')}
-              variant="outline"
-              className="border-orange-500 text-orange-600 hover:bg-orange-50"
-            >
-              <MessageCircle className="w-4 h-4 mr-2" />
-              Minta Foto Proyek Lainnya
-            </Button>
-          </div>
-        )}
+        {/* Info tambahan */}
+        <div className="mt-8 text-center">
+          <p className="text-slate-500 text-sm mb-3">
+            Foto-foto di atas adalah sebagian dari proyek yang sudah kami kerjakan
+          </p>
+          <p className="text-slate-400 text-xs">
+            Mau lihat foto lebih banyak? Kunjungi workshop kami atau hubungi via WhatsApp
+          </p>
+        </div>
       </section>
 
       {/* CTA Section */}
