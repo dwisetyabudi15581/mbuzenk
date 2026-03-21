@@ -12,55 +12,60 @@ import { ScrollAnimation } from '@/components/ui/scroll-animation'
 const faqHarga = [
   {
     q: 'Berapa harga kanopi minimalis per meter?',
-    a: 'Harga kanopi minimalis mulai dari Rp 150.000 - 400.000 per meter persegi, tergantung material atap (spandek, polikarbonat, alderon) dan rangka (besi hollow atau baja ringan). Untuk carport standar 3x5 meter, kisaran Rp 3-8 juta sudah termasuk pemasangan.',
+    a: 'Harga kanopi minimalis bervariasi tergantung material atap (spandek, polikarbonat, alderon) dan rangka (besi hollow atau baja ringan). Hubungi kami untuk penawaran terbaik sesuai kebutuhan Anda.',
     category: 'Kanopi',
   },
   {
     q: 'Berapa biaya pembuatan pagar besi?',
-    a: 'Pagar besi BRC mulai Rp 350.000/meter, pagar hollow minimalis Rp 500.000-700.000/meter, pagar custom premium Rp 700.000-1.200.000/meter. Harga termasuk cat dan pemasangan untuk area Magetan.',
+    a: 'Harga pagar besi disesuaikan dengan model (BRC, hollow, custom), tinggi, panjang, dan kompleksitas desain. Kami menyediakan berbagai pilihan sesuai budget Anda. Konsultasi gratis!',
     category: 'Pagar',
   },
   {
     q: 'Harga tangga besi spiral berapa?',
-    a: 'Tangga spiral besi mulai Rp 3.500.000 - 8.000.000 tergantung tinggi, diameter, dan kompleksitas desain. Tangga lurus lebih ekonomis, mulai Rp 2.500.000 - 5.000.000.',
+    a: 'Tangga spiral besi memiliki variasi harga berdasarkan tinggi, diameter, dan kompleksitas desain. Hubungi kami untuk survei gratis dan penawaran sesuai lokasi Anda.',
     category: 'Tangga',
   },
   {
     q: 'Berapa biaya teralis jendela?',
-    a: 'Teralis jendela minimalis mulai Rp 150.000 - 300.000 per meter persegi. Teralis artistik dengan ornamen Rp 250.000 - 500.000/m². Teralis security dengan besi tebal Rp 300.000 - 600.000/m².',
+    a: 'Teralis jendela tersedia dalam berbagai model: minimalis, artistik dengan ornamen, hingga security dengan besi tebal. Harga disesuaikan dengan model dan ukuran. Konsultasi gratis!',
     category: 'Teralis',
   },
   {
-    q: 'Berapa minimal order untuk pengerjaan?',
-    a: 'Untuk pengerjaan las, minimal order Rp 500.000. Untuk proyek besar seperti kanopi carport atau pagar, tidak ada minimal order. Kami mengerjakan dari skala rumah tangga hingga proyek komersial.',
-    category: 'Umum',
+    q: 'Apakah bisa konsultasi dulu sebelum order?',
+    a: 'Tentu! Kami menyediakan konsultasi dan survei lokasi GRATIS. Tim kami akan membantu merencanakan proyek sesuai kebutuhan dan budget Anda.',
+    category: 'Layanan',
   },
   {
     q: 'Apakah bisa DP dulu?',
-    a: 'Ya, sistem pembayaran kami fleksibel: DP 50% untuk memulai pengerjaan, pelunasan setelah selesai. Untuk proyek besar bisa negosiasi pembayaran bertahap.',
+    a: 'Ya, sistem pembayaran kami fleksibel. DP untuk memulai pengerjaan, pelunasan setelah selesai. Untuk proyek besar bisa negosiasi pembayaran bertahap.',
     category: 'Pembayaran',
   },
   {
     q: 'Apakah ada garansi?',
-    a: 'Ya! Garansi konstruksi 2 tahun untuk semua pekerjaan las. Garansi finishing cat 6 bulan. Service gratis seumur hidup untuk pelanggan setia.',
+    a: 'Ya! Garansi konstruksi untuk semua pekerjaan las. Garansi finishing cat juga tersedia. Service gratis untuk pelanggan setia.',
     category: 'Garansi',
   },
   {
     q: 'Berapa biaya survei lokasi?',
-    a: 'Survei lokasi GRATIS untuk area Magetan dan sekitarnya (radius 15km). Untuk luar area bisa ada biaya transportasi yang akan diinformasikan saat booking.',
+    a: 'Survei lokasi GRATIS untuk area Magetan dan sekitarnya. Untuk luar area akan diinformasikan saat booking.',
     category: 'Layanan',
   },
   {
     q: 'Berapa lama waktu pengerjaan?',
-    a: 'Kanopi: 3-7 hari kerja. Pagar: 2-5 hari. Teralis: 1-3 hari. Tangga: 3-7 hari. Renovasi: tergantung luas dan kompleksitas. Kami berikan estimasi pasti saat survei.',
+    a: 'Waktu pengerjaan bervariasi: Kanopi 3-7 hari kerja, Pagar 2-5 hari, Teralis 1-3 hari, Tangga 3-7 hari. Renovasi tergantung luas dan kompleksitas. Kami berikan estimasi pasti saat survei.',
     category: 'Waktu',
   },
   {
     q: 'Apakah melayani luar Magetan?',
-    a: 'Ya, kami melayani Madiun, Ngawi, Ponorogo, dan sekitarnya. Untuk lokasi di luar radius 30km ada tambahan biaya transportasi.',
+    a: 'Ya, kami melayani Madiun, Ngawi, Ponorogo, dan sekitarnya. Hubungi kami untuk konfirmasi area layanan.',
     category: 'Area',
   },
 ]
+
+export const metadata = {
+  title: 'FAQ Harga - Pertanyaan Seputar Layanan | MBUZENK ZETRO',
+  description: 'Jawaban lengkap pertanyaan yang sering diajukan tentang layanan bengkel las MBUZENK ZETRO Magetan. Konsultasi gratis untuk penawaran terbaik.',
+}
 
 export default function FAQHargaPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
@@ -69,12 +74,12 @@ export default function FAQHargaPage() {
     <main className="min-h-screen bg-gradient-to-b from-white to-slate-50">
       <section className="bg-gradient-to-br from-orange-500 to-red-600 py-12 sm:py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <Badge className="bg-white/20 text-white border-white/30 mb-4">FAQ HARGA</Badge>
+          <Badge className="bg-white/20 text-white border-white/30 mb-4">FAQ LAYANAN</Badge>
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 font-brand">
-            Pertanyaan Seputar Harga
+            Pertanyaan Seputar Layanan
           </h1>
           <p className="text-white/80 text-sm sm:text-base">
-            Jawaban lengkap pertanyaan yang sering diajukan tentang harga dan layanan kami
+            Jawaban lengkap pertanyaan yang sering diajukan tentang layanan kami
           </p>
         </div>
       </section>
@@ -113,14 +118,14 @@ export default function FAQHargaPage() {
           <Card className="bg-gradient-to-r from-orange-500 to-red-600 mt-8 overflow-hidden">
             <CardContent className="p-6 sm:p-8 text-center">
               <h3 className="text-xl font-bold text-white mb-3 font-brand">
-                Masih Punya Pertanyaan?
+                Mau Penawaran Terbaik?
               </h3>
               <p className="text-white/80 mb-6 text-sm">
-                Hubungi kami untuk konsultasi gratis dan penawaran terbaik
+                Hubungi kami untuk konsultasi gratis dan penawaran sesuai kebutuhan Anda
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Button 
-                  onClick={() => openWhatsApp('Halo, saya ada pertanyaan tentang harga layanan.')}
+                  onClick={() => openWhatsApp('Halo, saya ingin konsultasi tentang layanan bengkel las.')}
                   className="bg-white text-orange-600 hover:bg-white/90 min-h-[48px]"
                 >
                   <MessageCircle className="w-4 h-4 mr-2" />
