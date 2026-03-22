@@ -87,9 +87,8 @@ export default function ArticleContent() {
               Konsultasi Gratis
             </Button>
             <Button 
-              variant="outline"
               onClick={() => makeCall()}
-              className="border-slate-600 text-white hover:bg-slate-800 min-h-[48px]"
+              className="bg-slate-700/50 text-white border border-slate-500 hover:bg-slate-700 min-h-[48px]"
             >
               <Phone className="w-4 h-4 mr-2" />
               {CONFIG.phoneDisplay}

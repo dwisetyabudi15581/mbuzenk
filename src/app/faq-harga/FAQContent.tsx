@@ -127,9 +127,8 @@ export default function FAQContent() {
                   Chat WhatsApp
                 </Button>
                 <Button 
-                  variant="outline"
                   onClick={() => makeCall()}
-                  className="border-white text-white hover:bg-white/10 min-h-[48px]"
+                  className="bg-white/20 text-white border border-white/30 hover:bg-white/30 min-h-[48px]"
                 >
                   <Phone className="w-4 h-4 mr-2" />
                   Telepon

@@ -187,9 +187,8 @@ export default function GalleryPage() {
               Tanya via WhatsApp
             </Button>
             <Button 
-              variant="outline"
               onClick={() => makeCall()}
-              className="border-slate-500 text-white hover:bg-slate-700 min-h-[48px]"
+              className="bg-slate-700/50 text-white border border-slate-500 hover:bg-slate-700 min-h-[48px]"
             >
               <Phone className="w-4 h-4 mr-2" />
               +62 857-3860-2255
@@ -316,9 +315,8 @@ export default function GalleryPage() {
                 </Button>
                 <Button 
                   size="lg"
-                  variant="outline"
                   onClick={() => makeCall()}
-                  className="border-white text-white hover:bg-white/10 min-h-[48px]"
+                  className="bg-white/20 text-white border border-white/30 hover:bg-white/30 min-h-[48px]"
                 >
                   <Phone className="w-5 h-5 mr-2" />
                   Telepon Langsung
