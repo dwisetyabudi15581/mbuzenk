@@ -10,35 +10,35 @@ import { CONFIG, openWhatsApp, makeCall } from '@/lib/config'
 import { ScrollAnimation } from '@/components/ui/scroll-animation'
 import { useState } from 'react'
 
-// Data proyek dengan gambar realistis
+// Data proyek dengan gambar sesuai judul
 const semuaProyek = [
   // KANOPI
   {
     id: 1,
     judul: 'Kanopi Carport Spandek',
     kategori: 'Kanopi',
-    deskripsi: 'Kanopi carport dengan rangka besi galvanis dan atap spandek anti karat.',
+    deskripsi: 'Kanopi carport dengan rangka besi galvanis dan atap spandek biru anti karat. Cocok untuk 1-2 mobil.',
     image: '/gallery/kanopi-1.png',
   },
   {
     id: 2,
-    judul: 'Kanopi Alderon Teras',
+    judul: 'Kanopi Teras Alderon',
     kategori: 'Kanopi',
-    deskripsi: 'Kanopi teras dengan atap alderon yang kedap suara dan tahan panas.',
+    deskripsi: 'Kanopi teras dengan atap alderon coklat yang kedap suara dan tahan panas. Rangka besi kokoh.',
     image: '/gallery/kanopi-2.png',
   },
   {
     id: 3,
     judul: 'Kanopi Polikarbonat',
     kategori: 'Kanopi',
-    deskripsi: 'Kanopi dengan atap polikarbonat bening, tembus cahaya.',
+    deskripsi: 'Kanopi dengan atap polikarbonat bening, tembus cahaya. Rangka aluminium minimalis modern.',
     image: '/gallery/kanopi-3.png',
   },
   {
     id: 4,
-    judul: 'Kanopi Pagar Rumah',
+    judul: 'Kanopi Pagar',
     kategori: 'Kanopi',
-    deskripsi: 'Kanopi untuk area depan rumah, melindungi dari hujan dan panas.',
+    deskripsi: 'Kanopi untuk area depan rumah dan pagar, melindungi dari hujan dan panas.',
     image: '/gallery/kanopi-4.png',
   },
 
@@ -47,21 +47,21 @@ const semuaProyek = [
     id: 5,
     judul: 'Pagar Minimalis Hollow',
     kategori: 'Pagar',
-    deskripsi: 'Pagar minimalis model horizontal, besi hollow dengan finishing cat duco.',
+    deskripsi: 'Pagar minimalis model horizontal, besi hollow dengan finishing cat hitam duco.',
     image: '/gallery/pagar-1.png',
   },
   {
     id: 6,
     judul: 'Pagar BRC Standard',
     kategori: 'Pagar',
-    deskripsi: 'Pagar BRC galvanis anti karat, ekonomis dan praktis.',
+    deskripsi: 'Pagar BRC galvanis anti karat tinggi 1.5m. Ekonomis dan praktis untuk perumahan.',
     image: '/gallery/pagar-2.png',
   },
   {
     id: 7,
     judul: 'Pagar Custom Workshop',
     kategori: 'Pagar',
-    deskripsi: 'Pagar custom dengan desain eksklusif, dikerjakan di workshop.',
+    deskripsi: 'Proses pembuatan pagar custom di workshop. Dikerjakan oleh tukang las berpengalaman.',
     image: '/gallery/pagar-3.png',
   },
 
@@ -70,21 +70,21 @@ const semuaProyek = [
     id: 8,
     judul: 'Tangga Spiral Minimalis',
     kategori: 'Tangga',
-    deskripsi: 'Tangga spiral untuk rumah minimalis, hemat ruang.',
+    deskripsi: 'Tangga spiral besi dengan anak tangga kayu. Hemat ruang untuk rumah minimalis.',
     image: '/gallery/tangga-1.png',
   },
   {
     id: 9,
     judul: 'Tangga Lurus Besi',
     kategori: 'Tangga',
-    deskripsi: 'Tangga lurus dengan pegangan besi, anak tangga plat anti slip.',
+    deskripsi: 'Tangga lurus dengan rangka besi dan anak tangga papan kayu. Pegangan besi minimalis.',
     image: '/gallery/tangga-2.png',
   },
   {
     id: 10,
     judul: 'Tangga Proses Pengerjaan',
     kategori: 'Tangga',
-    deskripsi: 'Tangga dalam proses pemasangan, rangka besi hollow.',
+    deskripsi: 'Tangga dalam proses pemasangan. Rangka besi hollow siap dicat.',
     image: '/gallery/tangga-3.png',
   },
 
@@ -93,14 +93,14 @@ const semuaProyek = [
     id: 11,
     judul: 'Teralis Jendela Minimalis',
     kategori: 'Teralis',
-    deskripsi: 'Teralis jendela model minimalis, besi hollow 20x20.',
+    deskripsi: 'Teralis jendela model minimalis horizontal. Besi hollow 20x20, cat hitam.',
     image: '/gallery/teralis-1.png',
   },
   {
     id: 12,
     judul: 'Teralis Proses Las',
     kategori: 'Teralis',
-    deskripsi: 'Teralis dalam proses pengelasan di workshop.',
+    deskripsi: 'Proses pengelasan teralis di workshop. Api las dan sparks visible.',
     image: '/gallery/teralis-2.png',
   },
 
@@ -109,35 +109,35 @@ const semuaProyek = [
     id: 13,
     judul: 'Renovasi Dapur',
     kategori: 'Renovasi',
-    deskripsi: 'Renovasi dapur lengkap dengan kitchen set baru.',
+    deskripsi: 'Renovasi dapur lengkap: kitchen set baru, countertop granit, backsplash keramik.',
     image: '/gallery/renovasi-1.png',
   },
   {
     id: 14,
     judul: 'Renovasi Kamar Mandi',
     kategori: 'Renovasi',
-    deskripsi: 'Renovasi kamar mandi: shower, closet, keramik dinding.',
+    deskripsi: 'Renovasi kamar mandi: keramik dinding, lantai baru, closet jongkok, jendela kaca esir.',
     image: '/gallery/renovasi-2.png',
   },
   {
     id: 15,
     judul: 'Renovasi Atap',
     kategori: 'Renovasi',
-    deskripsi: 'Penggantian atap ke spandek atau alderon.',
+    deskripsi: 'Penggantian atap genteng ke spandek atau alderon. Rangka usuk baru.',
     image: '/gallery/renovasi-3.png',
   },
   {
     id: 16,
     judul: 'Perbaikan Struktur Atap',
     kategori: 'Renovasi',
-    deskripsi: 'Perbaikan rangka atap yang sudah rusak atau lapuk.',
+    deskripsi: 'Perbaikan rangka atap kayu yang rusak. Ganti usuk dan reng yang lapuk.',
     image: '/gallery/renovasi-4.png',
   },
   {
     id: 17,
     judul: 'Pembuatan Kitchen Set',
     kategori: 'Renovasi',
-    deskripsi: 'Kitchen set custom sesuai ukuran dapur.',
+    deskripsi: 'Pembuatan kitchen set custom dari kayu multiplek. Sesuai ukuran dapur.',
     image: '/gallery/renovasi-5.png',
   },
 ]
