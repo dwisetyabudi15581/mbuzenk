@@ -10,81 +10,81 @@ import { CONFIG, openWhatsApp, makeCall } from '@/lib/config'
 import { ScrollAnimation } from '@/components/ui/scroll-animation'
 import { useState } from 'react'
 
-// Data proyek - simpel tanpa nama pelanggan
+// Data proyek dengan gambar realistis
 const semuaProyek = [
   // KANOPI
   {
     id: 1,
     judul: 'Kanopi Carport Spandek',
     kategori: 'Kanopi',
-    deskripsi: 'Kanopi carport ukuran 4x6 meter, rangka besi hollow galvanis dengan atap spandek anti karat. Cocok untuk 1-2 mobil.',
+    deskripsi: 'Kanopi carport dengan rangka besi galvanis dan atap spandek anti karat.',
     image: '/gallery/kanopi-1.png',
   },
   {
     id: 2,
-    judul: 'Kanopi Teras Alderon',
+    judul: 'Kanopi Alderon Teras',
     kategori: 'Kanopi',
-    deskripsi: 'Kanopi teras dengan atap alderon yang kedap suara dan panas. Rangka baja ringan, pemasangan cepat.',
+    deskripsi: 'Kanopi teras dengan atap alderon yang kedap suara dan tahan panas.',
     image: '/gallery/kanopi-2.png',
   },
   {
     id: 3,
-    judul: 'Kanopi Pagar Polikarbonat',
+    judul: 'Kanopi Polikarbonat',
     kategori: 'Kanopi',
-    deskripsi: 'Kanopi area depan rumah dengan atap polikarbonat bening. Tembus cahaya, tidak pengap.',
+    deskripsi: 'Kanopi dengan atap polikarbonat bening, tembus cahaya.',
     image: '/gallery/kanopi-3.png',
   },
   {
     id: 4,
-    judul: 'Pergola Taman',
+    judul: 'Kanopi Pagar Rumah',
     kategori: 'Kanopi',
-    deskripsi: 'Pergola untuk area taman atau BBQ. Konstruksi baja dengan finishing cat kayu natural.',
-    image: '/project-pergola.png',
+    deskripsi: 'Kanopi untuk area depan rumah, melindungi dari hujan dan panas.',
+    image: '/gallery/kanopi-4.png',
   },
 
   // PAGAR
   {
     id: 5,
-    judul: 'Pagar Hollow Minimalis',
+    judul: 'Pagar Minimalis Hollow',
     kategori: 'Pagar',
-    deskripsi: 'Pagar minimalis model horizontal, besi hollow 40x40 dengan finishing powder coating. Tahan cuaca dan anti karat.',
+    deskripsi: 'Pagar minimalis model horizontal, besi hollow dengan finishing cat duco.',
     image: '/gallery/pagar-1.png',
   },
   {
     id: 6,
     judul: 'Pagar BRC Standard',
     kategori: 'Pagar',
-    deskripsi: 'Pagar BRC tinggi 1.5 meter, galvanis anti karat. Ekonomis dan praktis untuk perumahan.',
+    deskripsi: 'Pagar BRC galvanis anti karat, ekonomis dan praktis.',
     image: '/gallery/pagar-2.png',
   },
   {
     id: 7,
-    judul: 'Pagar Custom Artistik',
+    judul: 'Pagar Custom Workshop',
     kategori: 'Pagar',
-    deskripsi: 'Pagar custom dengan ornamen minimalis. Desain eksklusif sesuai keinginan, finishing duco premium.',
+    deskripsi: 'Pagar custom dengan desain eksklusif, dikerjakan di workshop.',
     image: '/gallery/pagar-3.png',
   },
 
   // TANGGA
   {
     id: 8,
-    judul: 'Tangga Spiral',
+    judul: 'Tangga Spiral Minimalis',
     kategori: 'Tangga',
-    deskripsi: 'Tangga spiral untuk rumah minimalis. Hemat ruang dengan diameter 1.2m, pegangan stainless steel.',
+    deskripsi: 'Tangga spiral untuk rumah minimalis, hemat ruang.',
     image: '/gallery/tangga-1.png',
   },
   {
     id: 9,
-    judul: 'Tangga Lurus Minimalis',
+    judul: 'Tangga Lurus Besi',
     kategori: 'Tangga',
-    deskripsi: 'Tangga lurus dengan pegangan kombinasi besi dan kayu. Lebar 90cm, anak tangga plat anti slip.',
+    deskripsi: 'Tangga lurus dengan pegangan besi, anak tangga plat anti slip.',
     image: '/gallery/tangga-2.png',
   },
   {
     id: 10,
-    judul: 'Tangga Model U',
+    judul: 'Tangga Proses Pengerjaan',
     kategori: 'Tangga',
-    deskripsi: 'Tangga bentuk U dengan bordes di tengah. Ideal untuk rumah dua lantai dengan ruang terbatas.',
+    deskripsi: 'Tangga dalam proses pemasangan, rangka besi hollow.',
     image: '/gallery/tangga-3.png',
   },
 
@@ -93,68 +93,61 @@ const semuaProyek = [
     id: 11,
     judul: 'Teralis Jendela Minimalis',
     kategori: 'Teralis',
-    deskripsi: 'Teralis jendela model minimalis, besi hollow 20x20. Jarak antar besi 12cm untuk keamanan optimal.',
+    deskripsi: 'Teralis jendela model minimalis, besi hollow 20x20.',
     image: '/gallery/teralis-1.png',
   },
   {
     id: 12,
-    judul: 'Teralis Security',
+    judul: 'Teralis Proses Las',
     kategori: 'Teralis',
-    deskripsi: 'Teralis security dengan besi tebal, dilengkapi sistem kunci dari dalam. Keamanan maksimal.',
+    deskripsi: 'Teralis dalam proses pengelasan di workshop.',
     image: '/gallery/teralis-2.png',
-  },
-  {
-    id: 13,
-    judul: 'Teralis Artistik',
-    kategori: 'Teralis',
-    deskripsi: 'Teralis dengan ornamen batik atau custom design. Finishing powder coating tahan lama.',
-    image: '/project-teralis.png',
   },
 
   // RENOVASI
   {
-    id: 14,
+    id: 13,
     judul: 'Renovasi Dapur',
     kategori: 'Renovasi',
-    deskripsi: 'Renovasi dapur lengkap: kitchen set baru, instalasi plumbing dan listrik, keramik backsplash.',
+    deskripsi: 'Renovasi dapur lengkap dengan kitchen set baru.',
     image: '/gallery/renovasi-1.png',
   },
   {
-    id: 15,
+    id: 14,
     judul: 'Renovasi Kamar Mandi',
     kategori: 'Renovasi',
-    deskripsi: 'Renovasi kamar mandi modern: shower area, closet duduk, wastafel, keramik full dinding.',
+    deskripsi: 'Renovasi kamar mandi: shower, closet, keramik dinding.',
     image: '/gallery/renovasi-2.png',
   },
   {
-    id: 16,
+    id: 15,
     judul: 'Renovasi Atap',
     kategori: 'Renovasi',
-    deskripsi: 'Penggantian atap genteng ke spandek atau alderon. Termasuk perbaikan rangka usuk yang rusak.',
+    deskripsi: 'Penggantian atap ke spandek atau alderon.',
     image: '/gallery/renovasi-3.png',
   },
   {
-    id: 17,
-    judul: 'Renovasi Total Rumah',
+    id: 16,
+    judul: 'Perbaikan Struktur Atap',
     kategori: 'Renovasi',
-    deskripsi: 'Renovasi menyeluruh: atap, plafon, lantai, kamar mandi, dapur, dan interior. Satu paket lengkap.',
-    image: '/project-renovasi.png',
+    deskripsi: 'Perbaikan rangka atap yang sudah rusak atau lapuk.',
+    image: '/gallery/renovasi-4.png',
   },
   {
-    id: 18,
-    judul: 'Perluasan Rumah',
+    id: 17,
+    judul: 'Pembuatan Kitchen Set',
     kategori: 'Renovasi',
-    deskripsi: 'Penambahan ruang tamu, kamar tidur, atau dapur. Konstruksi baru dengan pondasi yang kuat.',
-    image: '/project-atap.png',
+    deskripsi: 'Kitchen set custom sesuai ukuran dapur.',
+    image: '/gallery/renovasi-5.png',
   },
 ]
 
 const kategoriList = [
-  { nama: 'Semua', count: 18 },
+  { nama: 'Semua', count: 17 },
   { nama: 'Kanopi', count: 4 },
   { nama: 'Pagar', count: 3 },
   { nama: 'Tangga', count: 3 },
-  { nama: 'Teralis', count: 3 },
+  { nama: 'Teralis', count: 2 },
   { nama: 'Renovasi', count: 5 },
 ]
 
