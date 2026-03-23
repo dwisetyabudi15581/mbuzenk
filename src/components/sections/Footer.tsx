@@ -2,15 +2,14 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { MessageCircle, Facebook } from 'lucide-react'
-import { CONFIG, NAV_LINKS, openWhatsApp, scrollToSection } from '@/lib/config'
-import { FOOTER_SERVICES } from '@/lib/data'
+import { MessageCircle, Facebook, Newspaper, MapPin, ImageIcon, HelpCircle, Wrench, FileText } from 'lucide-react'
+import { CONFIG, NAV_LINKS, LAYANAN_LINKS, AREA_LAYANAN_LINKS, openWhatsApp, scrollToSection } from '@/lib/config'
 
 export function Footer() {
   return (
     <footer className="bg-slate-950 pt-12 sm:pt-16 pb-6 sm:pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8 sm:mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-8 mb-8 sm:mb-12">
           {/* Brand */}
           <div className="lg:col-span-2">
             <button 
@@ -72,9 +71,9 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold text-white mb-3 sm:mb-4 text-sm sm:text-base">Menu Cepat</h4>
+            <h4 className="font-semibold text-white mb-3 sm:mb-4 text-sm sm:text-base">Menu Utama</h4>
             <ul className="space-y-2 sm:space-y-3">
-              {NAV_LINKS.map((link) => (
+              {NAV_LINKS.slice(0, 4).map((link) => (
                 <li key={link.id}>
                   <button 
                     onClick={() => scrollToSection(link.id)}
@@ -84,45 +83,87 @@ export function Footer() {
                   </button>
                 </li>
               ))}
+              <li>
+                <Link href="/galeri" className="text-slate-400 hover:text-orange-400 transition-colors text-xs sm:text-sm py-1 flex items-center gap-1.5">
+                  <ImageIcon className="w-3.5 h-3.5" />
+                  Galeri
+                </Link>
+              </li>
+              <li>
+                <Link href="/faq-harga" className="text-slate-400 hover:text-orange-400 transition-colors text-xs sm:text-sm py-1 flex items-center gap-1.5">
+                  <HelpCircle className="w-3.5 h-3.5" />
+                  FAQ & Harga
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Layanan */}
           <div>
             <h4 className="font-semibold text-white mb-3 sm:mb-4 text-sm sm:text-base">Layanan Kami</h4>
             <ul className="space-y-2 sm:space-y-3">
-              {FOOTER_SERVICES.map((service, index) => (
-                <li key={index}>
-                  <button 
-                    onClick={() => openWhatsApp(service.message)}
-                    className="text-slate-400 hover:text-orange-400 transition-colors cursor-pointer text-xs sm:text-sm py-1"
+              {LAYANAN_LINKS.map((link) => (
+                <li key={link.slug}>
+                  <Link 
+                    href={`/layanan/${link.slug}`}
+                    className="text-slate-400 hover:text-orange-400 transition-colors text-xs sm:text-sm py-1 flex items-center gap-1.5"
                   >
-                    {service.name}
-                  </button>
+                    <Wrench className="w-3.5 h-3.5" />
+                    {link.label}
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Area Layanan - SEO Local */}
+          {/* Artikel */}
+          <div>
+            <h4 className="font-semibold text-white mb-3 sm:mb-4 text-sm sm:text-base">Artikel</h4>
+            <ul className="space-y-2 sm:space-y-3">
+              <li>
+                <Link href="/artikel" className="text-orange-400 hover:text-orange-300 transition-colors text-xs sm:text-sm py-1 font-medium flex items-center gap-1.5">
+                  <Newspaper className="w-3.5 h-3.5" />
+                  Semua Artikel
+                </Link>
+              </li>
+              <li>
+                <Link href="/artikel/keuntungan-kanopi-baja-ringan" className="text-slate-400 hover:text-orange-400 transition-colors text-xs sm:text-sm py-1 block">
+                  Keuntungan Kanopi Baja Ringan
+                </Link>
+              </li>
+              <li>
+                <Link href="/artikel/tips-memilih-kanopi-minimalis" className="text-slate-400 hover:text-orange-400 transition-colors text-xs sm:text-sm py-1 block">
+                  Tips Memilih Kanopi
+                </Link>
+              </li>
+              <li>
+                <Link href="/artikel/cara-memilih-pagar-minimalis" className="text-slate-400 hover:text-orange-400 transition-colors text-xs sm:text-sm py-1 block">
+                  Cara Memilih Pagar
+                </Link>
+              </li>
+              <li>
+                <Link href="/artikel/cara-memilih-bengkel-las" className="text-slate-400 hover:text-orange-400 transition-colors text-xs sm:text-sm py-1 block">
+                  Cara Memilih Bengkel Las
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Area Layanan */}
           <div>
             <h4 className="font-semibold text-white mb-3 sm:mb-4 text-sm sm:text-base">Area Layanan</h4>
             <ul className="space-y-2 sm:space-y-3">
-              <li>
-                <Link href="/area-layanan/madiun" className="text-slate-400 hover:text-orange-400 transition-colors text-xs sm:text-sm py-1 block">
-                  Bengkel Las Madiun
-                </Link>
-              </li>
-              <li>
-                <Link href="/area-layanan/ngawi" className="text-slate-400 hover:text-orange-400 transition-colors text-xs sm:text-sm py-1 block">
-                  Bengkel Las Ngawi
-                </Link>
-              </li>
-              <li>
-                <Link href="/area-layanan/ponorogo" className="text-slate-400 hover:text-orange-400 transition-colors text-xs sm:text-sm py-1 block">
-                  Bengkel Las Ponorogo
-                </Link>
-              </li>
+              {AREA_LAYANAN_LINKS.map((link) => (
+                <li key={link.slug}>
+                  <Link 
+                    href={`/area-layanan/${link.slug}`}
+                    className="text-slate-400 hover:text-orange-400 transition-colors text-xs sm:text-sm py-1 flex items-center gap-1.5"
+                  >
+                    <MapPin className="w-3.5 h-3.5" />
+                    {link.description}
+                  </Link>
+                </li>
+              ))}
               <li>
                 <button 
                   onClick={() => openWhatsApp('Halo, apakah bisa melayani daerah saya?')}

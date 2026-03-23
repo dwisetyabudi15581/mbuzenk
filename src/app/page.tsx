@@ -7,6 +7,7 @@ import {
   TestimonialsSection,
   ContactSection,
   Footer,
+  SitemapSection,
 } from '@/components/sections'
 import { FAQSection } from '@/components/sections/FAQSection'
 import { FloatingWhatsApp } from '@/components/ui/floating-whatsapp'
@@ -22,6 +23,7 @@ export default function MainPage() {
       <PortfolioSection />
       <TestimonialsSection />
       <FAQSection />
+      <SitemapSection />
       <ContactSection />
       <Footer />
       <FloatingWhatsApp />

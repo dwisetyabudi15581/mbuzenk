@@ -37,7 +37,7 @@ export const CONFIG = {
 } as const;
 
 // =============================================
-// NAVIGATION LINKS
+// NAVIGATION LINKS - Anchor links untuk homepage
 // =============================================
 export const NAV_LINKS = [
   { id: 'beranda', label: 'Beranda' },
@@ -47,6 +47,37 @@ export const NAV_LINKS = [
   { id: 'testimoni', label: 'Testimoni' },
   { id: 'faq', label: 'FAQ' },
   { id: 'kontak', label: 'Kontak' },
+] as const;
+
+// =============================================
+// LAYANAN (SERVICES) PAGES
+// =============================================
+export const LAYANAN_LINKS = [
+  { slug: 'bengkel-las', label: 'Bengkel Las', description: 'Jasa las profesional untuk berbagai kebutuhan' },
+  { slug: 'kanopi-minimalis', label: 'Kanopi Minimalis', description: 'Kanopi carport dan teras modern' },
+  { slug: 'pagar-besi', label: 'Pagar Besi', description: 'Pagar minimalis dan klasik' },
+  { slug: 'teralis-jendela', label: 'Teralis Jendela', description: 'Teralis keamanan dan dekoratif' },
+  { slug: 'tangga-besi', label: 'Tangga Besi', description: 'Tangga minimalis modern' },
+  { slug: 'renovasi-rumah', label: 'Renovasi Rumah', description: 'Jasa renovasi lengkap' },
+] as const;
+
+// =============================================
+// AREA LAYANAN PAGES
+// =============================================
+export const AREA_LAYANAN_LINKS = [
+  { slug: 'magetan', label: 'Magetan', description: 'Bengkel Las Magetan' },
+  { slug: 'madiun', label: 'Madiun', description: 'Bengkel Las Madiun' },
+  { slug: 'ngawi', label: 'Ngawi', description: 'Bengkel Las Ngawi' },
+  { slug: 'ponorogo', label: 'Ponorogo', description: 'Bengkel Las Ponorogo' },
+] as const;
+
+// =============================================
+// OTHER PAGES
+// =============================================
+export const OTHER_PAGES = [
+  { slug: '/artikel', label: 'Artikel', description: 'Tips dan informasi seputar bengkel las' },
+  { slug: '/galeri', label: 'Galeri', description: 'Dokumentasi hasil pekerjaan kami' },
+  { slug: '/faq-harga', label: 'FAQ & Harga', description: 'Pertanyaan umum dan estimasi harga' },
 ] as const;
 
 // =============================================
