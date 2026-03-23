@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     images: ['/service-las.png'],
   },
   alternates: {
-    canonical: 'https://mbuzenkzetro.com/layanan/bengkel-las',
+    canonical: 'https://www.mbuzenkzetro.com/layanan/bengkel-las',
   },
 }
 

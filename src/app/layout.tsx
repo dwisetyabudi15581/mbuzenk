@@ -110,6 +110,42 @@ export const metadata: Metadata = {
   },
 };
 
+// WebSite Schema for Sitelinks Search Box
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "MBUZENK ZETRO",
+  "url": "https://www.mbuzenkzetro.com",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://www.mbuzenkzetro.com/artikel?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+};
+
+// Organization Schema
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "MBUZENK ZETRO",
+  "url": "https://www.mbuzenkzetro.com",
+  "logo": "https://www.mbuzenkzetro.com/logo.png",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+6285738602255",
+    "contactType": "customer service",
+    "areaServed": "ID",
+    "availableLanguage": "Indonesian"
+  },
+  "sameAs": [
+    "https://www.facebook.com/mbuzenk.zetro",
+    "https://www.tiktok.com/@mbah.tro.mbuzenk"
+  ]
+};
+
 // JSON-LD Structured Data for Local Business
 const jsonLd = {
   "@context": "https://schema.org",
@@ -267,6 +303,14 @@ export default function RootLayout({
   return (
     <html lang="id" suppressHydrationWarning>
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
