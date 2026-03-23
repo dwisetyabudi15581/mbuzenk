@@ -13,55 +13,78 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.mbuzenkzetro.com'),
   title: "Bengkel Las Magetan | Renovasi Rumah & Konstruksi Baja - MBUZENK ZETRO",
-  description: "Bengkel las Magetan terpercaya sejak 2005. Jasa renovasi rumah, kanopi minimalis, pagar besi, tangga besi, konstruksi baja, kitchen set. 1000+ proyek selesai. Gratis survei! Hubungi: 0857-3860-2255. Melayani Magetan, Madiun, Ngawi, Ponorogo.",
+  description: "Bengkel las terpercaya sejak 2005. Spesialis kanopi minimalis, pagar besi, tangga besi, teralis, konstruksi baja, renovasi rumah. 1000+ proyek selesai. Melayani Jawa Timur & Indonesia. Hubungi: 0857-3860-2255.",
   keywords: [
     // Keywords utama - high volume
+    "bengkel las",
     "bengkel las magetan",
     "las magetan",
-    "renovasi rumah magetan",
-    "tukang las magetan",
-    "bengkel las",
     "renovasi rumah",
+    "renovasi rumah magetan",
+    "tukang las",
+    "tukang las magetan",
     // Keywords layanan las
-    "kanopi minimalis magetan",
+    "kanopi minimalis",
     "kanopi carport",
-    "pagar besi magetan",
+    "kanopi baja ringan",
+    "pagar besi",
     "pagar minimalis",
+    "pagar besi minimalis",
     "tangga besi",
     "tangga spiral",
     "teralis jendela",
+    "teralis",
     "konstruksi baja",
     "baja ringan",
     "pergola",
-    "kanopi baja ringan",
+    // Keywords lokasi - Jawa Timur
+    "bengkel las jawa timur",
+    "bengkel las madiun",
+    "bengkel las ngawi",
+    "bengkel las ponorogo",
+    "bengkel las surabaya",
+    "las madiun",
+    "las ngawi",
+    "las ponorogo",
+    "renovasi rumah jawa timur",
+    "renovasi madiun",
+    "renovasi ngawi",
+    "renovasi ponorogo",
+    "kanopi minimalis jawa timur",
+    "kanopi magetan",
+    "kanopi madiun",
+    "kanopi ngawi",
+    "pagar besi jawa timur",
     // Keywords layanan renovasi
     "renovasi kamar mandi",
+    "kitchen set",
     "kitchen set magetan",
     "renovasi dapur",
     "renovasi atap",
     "renovasi total rumah",
-    // Keywords lokasi
-    "las madiun",
-    "las ngawi",
-    "las ponorogo",
-    "renovasi madiun",
-    "renovasi ngawi",
-    "renovasi ponorogo",
-    "bengkel las madiun",
-    "bengkel las ngawi",
+    // Keywords jangkauan luas
+    "bengkel las terpercaya",
+    "bengkel las profesional",
+    "jasa las besi",
+    "jasa las terpercaya",
+    "spesialis las",
+    "kontraktor renovasi",
+    "jasa renovasi rumah terpercaya",
     // Keywords long-tail
     "jasa las besi magetan",
-    "pembuatan kanopi magetan",
+    "pembuatan kanopi",
     "pembuatan pagar besi",
     "toko besi magetan",
     "harga kanopi minimalis",
     "harga pagar besi",
     "spesialis las magetan",
     "kontraktor renovasi magetan",
-    "jasa renovasi rumah terpercaya",
+    "harga teralis jendela",
+    "harga tangga besi",
     // Brand
     "MBUZENK ZETRO",
     "mbuzenkzetro",
+    "mbuzenk zetro magetan",
   ],
   authors: [{ name: "MBUZENK ZETRO" }],
   creator: "MBUZENK ZETRO",
@@ -137,9 +160,22 @@ const organizationSchema = {
     "@type": "ContactPoint",
     "telephone": "+6285738602255",
     "contactType": "customer service",
-    "areaServed": "ID",
+    "areaServed": {
+      "@type": "Country",
+      "name": "Indonesia"
+    },
     "availableLanguage": "Indonesian"
   },
+  "areaServed": [
+    {
+      "@type": "State",
+      "name": "Jawa Timur"
+    },
+    {
+      "@type": "Country",
+      "name": "Indonesia"
+    }
+  ],
   "sameAs": [
     "https://www.facebook.com/mbuzenk.zetro",
     "https://www.tiktok.com/@mbah.tro.mbuzenk"
@@ -153,10 +189,10 @@ const jsonLd = {
   "@id": "https://www.mbuzenkzetro.com",
   "name": "MBUZENK ZETRO",
   "alternateName": "Bengkel Las MBUZENK ZETRO",
-  "description": "Bengkel las dan jasa renovasi rumah terpercaya di Magetan. Spesialis kanopi, pagar besi, tangga besi, konstruksi baja, kitchen set, dan renovasi rumah lengkap.",
+  "description": "Bengkel las dan jasa renovasi rumah terpercaya sejak 2005. Spesialis kanopi minimalis, pagar besi, tangga besi, teralis jendela, konstruksi baja, kitchen set, dan renovasi rumah lengkap. Melayani seluruh Jawa Timur dan Indonesia.",
   "url": "https://www.mbuzenkzetro.com",
   "telephone": "+6285738602255",
-  "email": "info@mbuzenkzetro.com",
+  "email": "mbuzenkzetro@gmail.com",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "CFR3+5JQ, Setro, Tebon, Kec. Bar.",
@@ -170,6 +206,36 @@ const jsonLd = {
     "latitude": "-7.6516",
     "longitude": "111.3619"
   },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Magetan"
+    },
+    {
+      "@type": "City",
+      "name": "Madiun"
+    },
+    {
+      "@type": "City",
+      "name": "Ngawi"
+    },
+    {
+      "@type": "City",
+      "name": "Ponorogo"
+    },
+    {
+      "@type": "City",
+      "name": "Surabaya"
+    },
+    {
+      "@type": "State",
+      "name": "Jawa Timur"
+    },
+    {
+      "@type": "Country",
+      "name": "Indonesia"
+    }
+  ],
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
@@ -273,7 +339,7 @@ const faqSchema = {
       "name": "Apakah melayani area di luar Magetan?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ya, kami melayani area Magetan, Madiun, Ngawi, Ponorogo, dan sekitarnya. Untuk lokasi di luar radius 30km dari bengkel, akan ada tambahan biaya transportasi yang akan diinformasikan saat survei lokasi gratis."
+        "text": "Ya, kami melayani seluruh Jawa Timur dan Indonesia. Area utama: Magetan, Madiun, Ngawi, Ponorogo, Surabaya, Malang, Kediri, Jember, dan kota lainnya di Indonesia. Untuk lokasi di luar radius 50km, akan ada biaya transportasi yang diinformasikan saat survei gratis."
       }
     },
     {

@@ -42,10 +42,10 @@ export function HeroSection() {
           {/* Description with Keywords */}
           <p className="text-base sm:text-lg lg:text-xl text-slate-300 mb-6 sm:mb-8 leading-relaxed animate-fade-in" style={{animationDelay: '0.2s'}}>
             <strong className="text-orange-400">Bengkel las</strong> dan jasa{' '}
-            <strong className="text-orange-400">renovasi rumah</strong> terpercaya di Magetan. 
-            Spesialis konstruksi baja, kanopi minimalis, pagar besi, tangga besi, dan renovasi rumah profesional. 
-            Dengan pengalaman lebih dari <strong className="text-orange-400">{CONFIG.yearsExperience} tahun</strong>, 
-            melayani Magetan, Madiun, Ngawi, Ponorogo dan sekitarnya.
+            <strong className="text-orange-400">renovasi rumah</strong> terpercaya sejak 2005. 
+            Spesialis konstruksi baja, kanopi minimalis, pagar besi, tangga besi, dan renovasi profesional. 
+            Dengan pengalaman <strong className="text-orange-400">{CONFIG.yearsExperience}</strong>, 
+            melayani <strong className="text-orange-400">seluruh Jawa Timur & Indonesia</strong>.
           </p>
 
           {/* CTA Buttons */}
