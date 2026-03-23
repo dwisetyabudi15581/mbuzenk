@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { getRelatedArticles, ARTICLE_CATEGORIES, type ArticleType } from '@/lib/articles'
@@ -77,11 +78,18 @@ export function ArticleCard({ article }: { article: ArticleType }) {
 
   return (
     <Link href={`/artikel/${article.slug}`}>
-      <Card className={`h-full transition-all duration-300 hover:shadow-xl cursor-pointer border-2 border-transparent ${colors.border} group`}>
+      <Card className={`h-full transition-all duration-300 hover:shadow-xl cursor-pointer border-2 border-transparent ${colors.border} group overflow-hidden`}>
         <CardContent className="p-0">
-          {/* Image placeholder dengan gradient */}
-          <div className={`h-40 ${colors.bg} flex items-center justify-center relative overflow-hidden`}>
-            <ArrowRight className={`w-12 h-12 ${colors.text} opacity-30 group-hover:scale-110 transition-transform duration-300`} />
+          {/* Image */}
+          <div className="h-48 relative overflow-hidden">
+            <Image
+              src={article.image}
+              alt={article.title}
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-500"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
             <Badge className={`absolute top-3 left-3 ${colors.bg} ${colors.text} border-current`}>
               {categoryLabel}
             </Badge>
@@ -92,7 +100,7 @@ export function ArticleCard({ article }: { article: ArticleType }) {
               <span>{new Date(article.date).toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
             </div>
             
-            <h3 className="font-bold text-slate-800 text-base mb-2 line-clamp-2 font-brand group-hover:text-blue-600 transition-colors">
+            <h3 className="font-bold text-slate-800 text-base mb-2 line-clamp-2 font-brand group-hover:text-orange-600 transition-colors">
               {article.title}
             </h3>
             
