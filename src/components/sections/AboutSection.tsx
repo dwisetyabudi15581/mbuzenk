@@ -1,7 +1,8 @@
 'use client'
 
+import Image from 'next/image'
 import { Badge } from '@/components/ui/badge'
-import { Award, Users, Shield, CheckCircle2 } from 'lucide-react'
+import { Award, Users, Shield, CheckCircle2, Quote } from 'lucide-react'
 import { CONFIG, scrollToSection } from '@/lib/config'
 import { ScrollAnimation } from '@/components/ui/scroll-animation'
 
@@ -66,7 +67,7 @@ export function AboutSection() {
             <h3 className="text-xl sm:text-2xl font-bold text-slate-800 font-brand">
               Bengkel Las & Renovasi Rumah Terpercaya dengan Kualitas Premium
             </h3>
-            <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
+            <p className="text-slate-600 leading-rel text-sm sm:text-base">
               <strong>{CONFIG.businessName}</strong> adalah bengkel las dan jasa renovasi rumah yang 
               berdiri sejak tahun {CONFIG.yearEstablished}. Kami berfokus pada penggunaan material berkualitas tinggi dengan 
               pengerjaan yang presisi dan detail. Setiap proyek kami tangani dengan standar keamanan tinggi 
@@ -102,6 +103,54 @@ export function AboutSection() {
             </div>
           </ScrollAnimation>
         </div>
+
+        {/* Owner Section */}
+        <ScrollAnimation className="mt-16 sm:mt-24">
+          <div className="bg-gradient-to-r from-slate-800 to-slate-900 rounded-3xl p-6 sm:p-10 lg:p-12 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-red-500/10 rounded-full blur-3xl" />
+            
+            <div className="grid lg:grid-cols-3 gap-8 items-center relative z-10">
+              {/* Owner Photo */}
+              <div className="flex justify-center lg:justify-start">
+                <div className="relative">
+                  <div className="w-40 h-40 sm:w-48 sm:h-48 rounded-2xl overflow-hidden border-4 border-orange-500/30 shadow-2xl">
+                    <Image
+                      src="/owner.jpg"
+                      alt="Pemilik MBUZENK ZETRO"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 160px, 192px"
+                    />
+                  </div>
+                  <div className="absolute -bottom-2 -right-2 w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center shadow-lg">
+                    <Award className="w-6 h-6 text-white" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Owner Quote */}
+              <div className="lg:col-span-2 text-center lg:text-left">
+                <Quote className="w-10 h-10 text-orange-500/30 mb-4 mx-auto lg:mx-0" />
+                <blockquote className="text-lg sm:text-xl lg:text-2xl text-white font-medium leading-relaxed mb-6">
+                  &ldquo;Kami berkomitmen memberikan hasil terbaik dengan standar kualitas tertinggi. 
+                  Setiap proyek adalah tanggung jawab kami untuk memastikan kepuasan pelanggan.&rdquo;
+                </blockquote>
+                <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
+                  <div className="text-center sm:text-left">
+                    <div className="text-white font-bold text-lg">Mbah Tro</div>
+                    <div className="text-slate-400 text-sm">Pemilik & Pendiri MBUZENK ZETRO</div>
+                  </div>
+                  <div className="hidden sm:block w-px h-12 bg-slate-700" />
+                  <div className="text-center sm:text-left">
+                    <div className="text-orange-400 font-semibold">{CONFIG.yearsExperience} Pengalaman</div>
+                    <div className="text-slate-400 text-sm">Sejak {CONFIG.yearEstablished}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ScrollAnimation>
       </div>
     </section>
   )
