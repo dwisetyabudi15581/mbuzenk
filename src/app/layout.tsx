@@ -186,7 +186,7 @@ const organizationSchema = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "https://www.mbuzenkzetro.com",
+  "@id": "https://www.mbuzenkzetro.com/#business",
   "name": "MBUZENK ZETRO",
   "alternateName": "Bengkel Las MBUZENK ZETRO",
   "description": "Bengkel las dan jasa renovasi rumah terpercaya sejak 2005. Spesialis kanopi minimalis, pagar besi, tangga besi, teralis jendela, konstruksi baja, kitchen set, dan renovasi rumah lengkap. Melayani seluruh Jawa Timur dan Indonesia.",
@@ -206,6 +206,7 @@ const jsonLd = {
     "latitude": "-7.6516",
     "longitude": "111.3619"
   },
+  "hasMap": "https://maps.google.com/?q=-7.6516,111.3619",
   "areaServed": [
     {
       "@type": "City",

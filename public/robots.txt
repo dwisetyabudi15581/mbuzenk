@@ -2,8 +2,8 @@
 User-agent: *
 Allow: /
 
-# Sitemap
+# Sitemaps
 Sitemap: https://www.mbuzenkzetro.com/sitemap.xml
 
-# Crawl-delay
-Crawl-delay: 10
+# Allow all search engines to crawl freely
+# Removed crawl-delay for better indexing speed

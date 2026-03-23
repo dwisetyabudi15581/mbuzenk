@@ -1,1 +1,1 @@
-export { ArticleSchema, BreadcrumbSchema, ServiceSchema } from './SchemaMarkup'
+export { ArticleSchema, BreadcrumbSchema, ServiceSchema, LocalBusinessSchema, FAQSchema } from './SchemaMarkup'
