@@ -7,6 +7,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { CheckCircle2, ArrowRight, MessageCircle, Phone, Home, RotateCcw, ArrowDownUp, Circle, Ruler, Palette } from 'lucide-react'
 import { CONFIG, openWhatsApp, makeCall } from '@/lib/config'
 import { ScrollAnimation } from '@/components/ui/scroll-animation'
+import { RelatedArticles } from '@/components/ui/related-articles'
 
 const jenisTangga = [
   {
@@ -278,9 +279,12 @@ export default function ArticleContent() {
           </Card>
         </ScrollAnimation>
 
+        {/* Related Articles */}
+        <RelatedArticles currentSlug="jenis-tangga-besi-minimalis" />
+        
         {/* Related Services */}
         <ScrollAnimation>
-          <div className="mt-12">
+          <div className="mt-8">
             <h3 className="text-lg font-bold text-slate-800 mb-4 font-brand">
               Layanan Terkait:
             </h3>

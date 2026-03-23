@@ -7,6 +7,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { CheckCircle2, ArrowRight, MessageCircle, Phone, Shield, Sparkles, Minus, Eye } from 'lucide-react'
 import { CONFIG, openWhatsApp, makeCall } from '@/lib/config'
 import { ScrollAnimation } from '@/components/ui/scroll-animation'
+import { RelatedArticles } from '@/components/ui/related-articles'
 
 const jenisTeralis = [
   {
@@ -113,6 +114,9 @@ export default function TeralisArticle() {
           </Card>
         </ScrollAnimation>
 
+        {/* Related Articles */}
+        <RelatedArticles currentSlug="jenis-teralis-jendela" />
+        
         <div className="mt-8">
           <h3 className="text-lg font-bold text-slate-800 mb-4 font-brand">Layanan Terkait:</h3>
           <div className="flex flex-wrap gap-2">

@@ -7,6 +7,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { CheckCircle2, ArrowRight, MessageCircle, Phone, Award, FileText, Users, Shield, Clock, AlertTriangle, Star } from 'lucide-react'
 import { CONFIG, openWhatsApp, makeCall } from '@/lib/config'
 import { ScrollAnimation } from '@/components/ui/scroll-animation'
+import { RelatedArticles } from '@/components/ui/related-articles'
 
 const tipsMemilih = [
   {
@@ -218,9 +219,12 @@ export default function ArticleContent() {
           </Card>
         </ScrollAnimation>
 
+        {/* Related Articles */}
+        <RelatedArticles currentSlug="tips-memilih-kontraktor" />
+        
         {/* Related */}
         <ScrollAnimation>
-          <div className="mt-12">
+          <div className="mt-8">
             <h3 className="text-lg font-bold text-slate-800 mb-4 font-brand">Layanan Kami:</h3>
             <div className="flex flex-wrap gap-2">
               <Link href="/layanan/renovasi-rumah"><Badge variant="outline" className="cursor-pointer hover:bg-purple-50">Renovasi Rumah</Badge></Link>

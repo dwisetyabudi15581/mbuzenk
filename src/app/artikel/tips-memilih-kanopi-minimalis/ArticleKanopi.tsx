@@ -7,6 +7,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { CheckCircle2, ArrowRight, MessageCircle, Phone, Clock, Shield, Thermometer, Droplets, Wind, Sun } from 'lucide-react'
 import { CONFIG, openWhatsApp, makeCall } from '@/lib/config'
 import { ScrollAnimation } from '@/components/ui/scroll-animation'
+import { RelatedArticles } from '@/components/ui/related-articles'
 
 const tipsKanopi = [
   {
@@ -169,9 +170,12 @@ export default function ArticleKanopi() {
           </Card>
         </ScrollAnimation>
 
+        {/* Related Articles */}
+        <RelatedArticles currentSlug="tips-memilih-kanopi-minimalis" />
+        
         {/* Related Services */}
         <ScrollAnimation>
-          <div className="mt-12">
+          <div className="mt-8">
             <h3 className="text-lg font-bold text-slate-800 mb-4 font-brand">
               Layanan Terkait:
             </h3>
