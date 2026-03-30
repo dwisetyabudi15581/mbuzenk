@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     'pembuatan teralis magetan',
   ],
   alternates: {
-    canonical: 'https://www.mbuzenkzetro.com/artikel/jenis-teralis-jendela',
+    canonical: 'https://www.mbuzenkzetro.com/artikel/jenis-teralis-jendela/',
   },
 }
 

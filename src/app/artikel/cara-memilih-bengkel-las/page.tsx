@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     images: ['/project-kanopi.png'],
   },
   alternates: {
-    canonical: 'https://www.mbuzenkzetro.com/artikel/cara-memilih-bengkel-las',
+    canonical: 'https://www.mbuzenkzetro.com/artikel/cara-memilih-bengkel-las/',
   },
 }
 

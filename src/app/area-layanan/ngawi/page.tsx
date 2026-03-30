@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     description: 'Bengkel las terpercaya di Ngawi. Pagar besi, kanopi, tangga, renovasi rumah. Hubungi: 0857-3860-2255',
   },
   alternates: {
-    canonical: 'https://www.mbuzenkzetro.com/area-layanan/ngawi',
+    canonical: 'https://www.mbuzenkzetro.com/area-layanan/ngawi/',
   },
 }
 

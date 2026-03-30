@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     locale: 'id_ID',
   },
   alternates: {
-    canonical: 'https://www.mbuzenkzetro.com/layanan/bengkel-las',
+    canonical: 'https://www.mbuzenkzetro.com/layanan/bengkel-las/',
   },
 }
 

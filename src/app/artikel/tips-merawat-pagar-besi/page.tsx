@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     images: ['/project-pagar.png'],
   },
   alternates: {
-    canonical: 'https://www.mbuzenkzetro.com/artikel/tips-merawat-pagar-besi',
+    canonical: 'https://www.mbuzenkzetro.com/artikel/tips-merawat-pagar-besi/',
   },
 }
 

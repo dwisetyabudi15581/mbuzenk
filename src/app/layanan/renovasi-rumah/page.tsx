@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     images: ['/project-renovasi.png'],
   },
   alternates: {
-    canonical: 'https://www.mbuzenkzetro.com/layanan/renovasi-rumah',
+    canonical: 'https://www.mbuzenkzetro.com/layanan/renovasi-rumah/',
   },
 }
 

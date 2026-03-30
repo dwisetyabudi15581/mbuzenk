@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     images: ['/logo.png'],
   },
   alternates: {
-    canonical: 'https://www.mbuzenkzetro.com/artikel',
+    canonical: 'https://www.mbuzenkzetro.com/artikel/',
   },
 }
 

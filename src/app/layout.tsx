@@ -126,7 +126,7 @@ export const metadata: Metadata = {
     images: ["/hero-image.png"],
   },
   alternates: {
-    canonical: "https://www.mbuzenkzetro.com",
+    canonical: "https://www.mbuzenkzetro.com/",
   },
   verification: {
     google: "-kfDC-67NO6XdQIDHFe7P_Lo7iJsdnQn17Zg9U-lDYQ",

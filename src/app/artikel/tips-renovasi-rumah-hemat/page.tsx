@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     images: ['/project-renovasi.png'],
   },
   alternates: {
-    canonical: 'https://www.mbuzenkzetro.com/artikel/tips-renovasi-rumah-hemat',
+    canonical: 'https://www.mbuzenkzetro.com/artikel/tips-renovasi-rumah-hemat/',
   },
 }
 

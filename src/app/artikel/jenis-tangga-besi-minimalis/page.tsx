@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     images: ['/project-tangga.png'],
   },
   alternates: {
-    canonical: 'https://www.mbuzenkzetro.com/artikel/jenis-tangga-besi-minimalis',
+    canonical: 'https://www.mbuzenkzetro.com/artikel/jenis-tangga-besi-minimalis/',
   },
 }
 

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     images: ['/project-pagar.png'],
   },
   alternates: {
-    canonical: 'https://www.mbuzenkzetro.com/layanan/pagar-besi',
+    canonical: 'https://www.mbuzenkzetro.com/layanan/pagar-besi/',
   },
 }
 

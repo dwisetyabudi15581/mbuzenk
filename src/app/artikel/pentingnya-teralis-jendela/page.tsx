@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     images: ['/project-teralis.png'],
   },
   alternates: {
-    canonical: 'https://www.mbuzenkzetro.com/artikel/pentingnya-teralis-jendela',
+    canonical: 'https://www.mbuzenkzetro.com/artikel/pentingnya-teralis-jendela/',
   },
 }
 

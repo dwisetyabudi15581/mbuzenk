@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     images: ['/project-kanopi.png'],
   },
   alternates: {
-    canonical: 'https://www.mbuzenkzetro.com/layanan/kanopi-minimalis',
+    canonical: 'https://www.mbuzenkzetro.com/layanan/kanopi-minimalis/',
   },
 }
 

@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   
   // Generate article URLs from data
   const articleUrls = ARTICLES.map(article => ({
-    url: `${baseUrl}/artikel/${article.slug}`,
+    url: `${baseUrl}/artikel/${article.slug}/`,
     lastModified: article.date,
     changeFrequency: 'monthly' as const,
     priority: 0.8,
@@ -16,90 +16,90 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     // Main Page
     {
-      url: baseUrl,
+      url: `${baseUrl}/`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 1,
     },
     // Article List Page
     {
-      url: `${baseUrl}/artikel`,
+      url: `${baseUrl}/artikel/`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     // Gallery Page
     {
-      url: `${baseUrl}/galeri`,
+      url: `${baseUrl}/galeri/`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     // FAQ Page
     {
-      url: `${baseUrl}/faq-harga`,
+      url: `${baseUrl}/faq-harga/`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     // SEO Landing Pages - HIGH PRIORITY
     {
-      url: `${baseUrl}/layanan/bengkel-las`,
+      url: `${baseUrl}/layanan/bengkel-las/`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.95,
     },
     {
-      url: `${baseUrl}/layanan/renovasi-rumah`,
+      url: `${baseUrl}/layanan/renovasi-rumah/`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.95,
     },
     {
-      url: `${baseUrl}/layanan/kanopi-minimalis`,
+      url: `${baseUrl}/layanan/kanopi-minimalis/`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.95,
     },
     {
-      url: `${baseUrl}/layanan/pagar-besi`,
+      url: `${baseUrl}/layanan/pagar-besi/`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.95,
     },
     {
-      url: `${baseUrl}/layanan/tangga-besi`,
+      url: `${baseUrl}/layanan/tangga-besi/`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.95,
     },
     {
-      url: `${baseUrl}/layanan/teralis-jendela`,
+      url: `${baseUrl}/layanan/teralis-jendela/`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.95,
     },
     // Area Layanan Pages - HIGH PRIORITY for Local SEO
     {
-      url: `${baseUrl}/area-layanan/magetan`,
+      url: `${baseUrl}/area-layanan/magetan/`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/area-layanan/madiun`,
+      url: `${baseUrl}/area-layanan/madiun/`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/area-layanan/ngawi`,
+      url: `${baseUrl}/area-layanan/ngawi/`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/area-layanan/ponorogo`,
+      url: `${baseUrl}/area-layanan/ponorogo/`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.9,

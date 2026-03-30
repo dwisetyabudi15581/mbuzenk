@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     images: ['/project-kanopi.png'],
   },
   alternates: {
-    canonical: 'https://www.mbuzenkzetro.com/artikel/model-kanopi-terbaru-2024',
+    canonical: 'https://www.mbuzenkzetro.com/artikel/model-kanopi-terbaru-2024/',
   },
 }
 

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     images: ['/project-tangga.png'],
   },
   alternates: {
-    canonical: 'https://www.mbuzenkzetro.com/layanan/tangga-besi',
+    canonical: 'https://www.mbuzenkzetro.com/layanan/tangga-besi/',
   },
 }
 

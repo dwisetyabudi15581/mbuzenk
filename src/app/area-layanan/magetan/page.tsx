@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     locale: 'id_ID',
   },
   alternates: {
-    canonical: 'https://www.mbuzenkzetro.com/area-layanan/magetan',
+    canonical: 'https://www.mbuzenkzetro.com/area-layanan/magetan/',
   },
 }
 
