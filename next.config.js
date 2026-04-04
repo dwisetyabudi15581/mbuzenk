@@ -17,9 +17,6 @@ const nextConfig = {
     remotePatterns: [],
   },
   
-  // Output standalone untuk deployment yang lebih efisien
-  output: 'standalone',
-  
   // Redirect dari non-www ke www (jika deploy di Vercel, ini bisa dihandle di vercel.json)
   async redirects() {
     return [
@@ -55,16 +52,21 @@ const nextConfig = {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=()',
           },
-          // Cache control untuk static assets
+        ],
+      },
+      // Cache untuk images - long cache
+      {
+        source: '/:path(.*?)\\.(png|jpg|jpeg|webp|avif|ico|svg)',
+        headers: [
           {
             key: 'Cache-Control',
             value: 'public, max-age=31536000, immutable',
           },
         ],
       },
-      // Cache untuk images
+      // Cache untuk JS/CSS - long cache with immutable
       {
-        source: '/:path(.*?)\\.(png|jpg|jpeg|webp|avif|ico|svg)',
+        source: '/_next/static/:path*',
         headers: [
           {
             key: 'Cache-Control',
