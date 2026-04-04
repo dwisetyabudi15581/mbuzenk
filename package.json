@@ -9,8 +9,10 @@
     "lint": "next lint"
   },
   "browserslist": [
-    "defaults and fully supports es6-module",
-    "maintained node versions"
+    "last 2 versions and not dead",
+    "> 0.3%",
+    "Firefox ESR",
+    "not IE 11"
   ],
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.14",

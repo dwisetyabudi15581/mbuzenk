@@ -11,7 +11,16 @@ const nextConfig = {
   // Target modern browsers - reduces polyfills and bundle size
   experimental: {
     // Optimize package imports for smaller bundles
-    optimizePackageImports: ['lucide-react', '@radix-ui/react-dialog', '@radix-ui/react-toast'],
+    optimizePackageImports: [
+      'lucide-react', 
+      '@radix-ui/react-dialog', 
+      '@radix-ui/react-toast',
+      '@radix-ui/react-slot'
+    ],
+    // Enable modern build optimizations
+    turbo: {
+      resolveExtensions: ['.tsx', '.ts', '.jsx', '.js', '.json'],
+    },
   },
   
   // Image Optimization
@@ -19,6 +28,8 @@ const nextConfig = {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    // Lower quality for better compression (default is 75)
+    quality: 65,
     // Remote patterns untuk external images (jika diperlukan)
     remotePatterns: [],
   },
