@@ -15,6 +15,7 @@ export function HeroSection() {
           alt="Bengkel Las MBUZENK ZETRO - Spesialis Kanopi, Pagar Besi, Renovasi Rumah"
           fill
           priority
+          fetchPriority="high"
           sizes="100vw"
           className="object-cover"
           placeholder="blur"
