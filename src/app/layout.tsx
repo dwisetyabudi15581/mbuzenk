@@ -381,7 +381,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         
         {/* Preload critical font */}
-        <link rel="preload" href="/hero-image.png" as="image" />
+        <link rel="preload" href="/hero-image.webp" as="image" />
         
         <script
           type="application/ld+json"

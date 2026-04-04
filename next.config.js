@@ -8,6 +8,12 @@ const nextConfig = {
   // Skip trailing slash redirect untuk API routes
   skipTrailingSlashRedirect: true,
   
+  // Target modern browsers - reduces polyfills and bundle size
+  experimental: {
+    // Optimize package imports for smaller bundles
+    optimizePackageImports: ['lucide-react', '@radix-ui/react-dialog', '@radix-ui/react-toast'],
+  },
+  
   // Image Optimization
   images: {
     formats: ['image/avif', 'image/webp'],

@@ -11,7 +11,7 @@ export function HeroSection() {
       {/* Background Image - Optimized with Next.js Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/hero-image.png"
+          src="/hero-image.webp"
           alt="Bengkel Las MBUZENK ZETRO - Spesialis Kanopi, Pagar Besi, Renovasi Rumah"
           fill
           priority

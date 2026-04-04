@@ -182,7 +182,7 @@ export function CookieConsent() {
                 <div className="flex items-center justify-between">
                   <div>
                     <h4 className="font-semibold text-slate-800">Cookie Esensial</h4>
-                    <p className="text-slate-500 text-sm">Diperlukan untuk fungsi dasar website</p>
+                    <p className="text-slate-600 text-sm">Diperlukan untuk fungsi dasar website</p>
                   </div>
                   <div className="w-12 h-6 bg-orange-500 rounded-full flex items-center justify-end px-1">
                     <div className="w-4 h-4 bg-white rounded-full shadow" />
@@ -195,7 +195,7 @@ export function CookieConsent() {
                 <div className="flex items-center justify-between">
                   <div>
                     <h4 className="font-semibold text-slate-800">Cookie Analitik</h4>
-                    <p className="text-slate-500 text-sm">Membantu kami memahami pengunjung website</p>
+                    <p className="text-slate-600 text-sm">Membantu kami memahami pengunjung website</p>
                   </div>
                   <button
                     onClick={() => setPreferences(p => ({ ...p, analytics: !p.analytics }))}
@@ -213,7 +213,7 @@ export function CookieConsent() {
                 <div className="flex items-center justify-between">
                   <div>
                     <h4 className="font-semibold text-slate-800">Cookie Pemasaran</h4>
-                    <p className="text-slate-500 text-sm">Untuk menampilkan iklan yang relevan</p>
+                    <p className="text-slate-600 text-sm">Untuk menampilkan iklan yang relevan</p>
                   </div>
                   <button
                     onClick={() => setPreferences(p => ({ ...p, marketing: !p.marketing }))}

@@ -31,7 +31,7 @@ export function Footer() {
                 <span className="block text-[10px] sm:text-xs text-orange-400">{CONFIG.tagline}</span>
               </div>
             </button>
-            <p className="text-slate-400 mb-4 sm:mb-6 max-w-md leading-relaxed text-xs sm:text-sm">
+            <p className="text-slate-300 mb-4 sm:mb-6 max-w-md leading-relaxed text-xs sm:text-sm">
               {CONFIG.businessName} adalah bengkel las dan jasa renovasi rumah terpercaya. 
               Dengan pengalaman lebih dari {CONFIG.yearsExperience} tahun, kami berkomitmen 
               memberikan hasil terbaik dengan standar kualitas tertinggi. 
@@ -46,7 +46,7 @@ export function Footer() {
                 className="w-9 h-9 sm:w-10 sm:h-10 bg-slate-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition-colors cursor-pointer min-h-[44px] min-w-[44px]"
                 aria-label="Facebook MBUZENK ZETRO"
               >
-                <Facebook className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 hover:text-white" />
+                <Facebook className="w-4 h-4 sm:w-5 sm:h-5 text-slate-300 hover:text-white" />
               </a>
               <a 
                 href={CONFIG.tiktok} 
@@ -55,7 +55,7 @@ export function Footer() {
                 className="w-9 h-9 sm:w-10 sm:h-10 bg-slate-800 hover:bg-black rounded-lg flex items-center justify-center transition-colors cursor-pointer min-h-[44px] min-w-[44px]"
                 aria-label="TikTok MBUZENK ZETRO"
               >
-                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 hover:text-white" viewBox="0 0 24 24" fill="currentColor">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-slate-300 hover:text-white" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
                 </svg>
               </a>
@@ -64,7 +64,7 @@ export function Footer() {
                 className="w-9 h-9 sm:w-10 sm:h-10 bg-slate-800 hover:bg-green-500 rounded-lg flex items-center justify-center transition-colors cursor-pointer min-h-[44px] min-w-[44px]"
                 aria-label="WhatsApp MBUZENK ZETRO"
               >
-                <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 hover:text-white" />
+                <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 text-slate-300 hover:text-white" />
               </button>
             </div>
           </div>
@@ -77,20 +77,20 @@ export function Footer() {
                 <li key={link.id}>
                   <button 
                     onClick={() => scrollToSection(link.id)}
-                    className="text-slate-400 hover:text-orange-400 transition-colors cursor-pointer text-xs sm:text-sm py-1"
+                    className="text-slate-300 hover:text-orange-400 transition-colors cursor-pointer text-xs sm:text-sm py-1"
                   >
                     {link.label}
                   </button>
                 </li>
               ))}
               <li>
-                <Link href="/galeri" className="text-slate-400 hover:text-orange-400 transition-colors text-xs sm:text-sm py-1 flex items-center gap-1.5">
+                <Link href="/galeri" className="text-slate-300 hover:text-orange-400 transition-colors text-xs sm:text-sm py-1 flex items-center gap-1.5">
                   <ImageIcon className="w-3.5 h-3.5" />
                   Galeri
                 </Link>
               </li>
               <li>
-                <Link href="/faq-harga" className="text-slate-400 hover:text-orange-400 transition-colors text-xs sm:text-sm py-1 flex items-center gap-1.5">
+                <Link href="/faq-harga" className="text-slate-300 hover:text-orange-400 transition-colors text-xs sm:text-sm py-1 flex items-center gap-1.5">
                   <HelpCircle className="w-3.5 h-3.5" />
                   FAQ & Harga
                 </Link>
@@ -106,7 +106,7 @@ export function Footer() {
                 <li key={link.slug}>
                   <Link 
                     href={`/layanan/${link.slug}`}
-                    className="text-slate-400 hover:text-orange-400 transition-colors text-xs sm:text-sm py-1 flex items-center gap-1.5"
+                    className="text-slate-300 hover:text-orange-400 transition-colors text-xs sm:text-sm py-1 flex items-center gap-1.5"
                   >
                     <Wrench className="w-3.5 h-3.5" />
                     {link.label}
@@ -127,22 +127,22 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/artikel/keuntungan-kanopi-baja-ringan" className="text-slate-400 hover:text-orange-400 transition-colors text-xs sm:text-sm py-1 block">
+                <Link href="/artikel/keuntungan-kanopi-baja-ringan" className="text-slate-300 hover:text-orange-400 transition-colors text-xs sm:text-sm py-1 block">
                   Keuntungan Kanopi Baja Ringan
                 </Link>
               </li>
               <li>
-                <Link href="/artikel/tips-memilih-kanopi-minimalis" className="text-slate-400 hover:text-orange-400 transition-colors text-xs sm:text-sm py-1 block">
+                <Link href="/artikel/tips-memilih-kanopi-minimalis" className="text-slate-300 hover:text-orange-400 transition-colors text-xs sm:text-sm py-1 block">
                   Tips Memilih Kanopi
                 </Link>
               </li>
               <li>
-                <Link href="/artikel/cara-memilih-pagar-minimalis" className="text-slate-400 hover:text-orange-400 transition-colors text-xs sm:text-sm py-1 block">
+                <Link href="/artikel/cara-memilih-pagar-minimalis" className="text-slate-300 hover:text-orange-400 transition-colors text-xs sm:text-sm py-1 block">
                   Cara Memilih Pagar
                 </Link>
               </li>
               <li>
-                <Link href="/artikel/cara-memilih-bengkel-las" className="text-slate-400 hover:text-orange-400 transition-colors text-xs sm:text-sm py-1 block">
+                <Link href="/artikel/cara-memilih-bengkel-las" className="text-slate-300 hover:text-orange-400 transition-colors text-xs sm:text-sm py-1 block">
                   Cara Memilih Bengkel Las
                 </Link>
               </li>
@@ -157,7 +157,7 @@ export function Footer() {
                 <li key={link.slug}>
                   <Link 
                     href={`/area-layanan/${link.slug}`}
-                    className="text-slate-400 hover:text-orange-400 transition-colors text-xs sm:text-sm py-1 flex items-center gap-1.5"
+                    className="text-slate-300 hover:text-orange-400 transition-colors text-xs sm:text-sm py-1 flex items-center gap-1.5"
                   >
                     <MapPin className="w-3.5 h-3.5" />
                     {link.description}
@@ -167,7 +167,7 @@ export function Footer() {
               <li>
                 <button 
                   onClick={() => openWhatsApp('Halo, apakah bisa melayani daerah saya?')}
-                  className="text-slate-400 hover:text-orange-400 transition-colors cursor-pointer text-xs sm:text-sm py-1"
+                  className="text-slate-300 hover:text-orange-400 transition-colors cursor-pointer text-xs sm:text-sm py-1"
                 >
                   Area Lainnya →
                 </button>
@@ -179,19 +179,19 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-slate-800 pt-6 sm:pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-slate-400 text-xs sm:text-sm text-center md:text-left">
+            <p className="text-slate-300 text-xs sm:text-sm text-center md:text-left">
               &copy; {new Date().getFullYear()} {CONFIG.businessName}. Bengkel Las & Renovasi Rumah Magetan. All rights reserved.
             </p>
             <div className="flex gap-4 sm:gap-6 text-xs sm:text-sm">
               <button 
                 onClick={() => openWhatsApp('Halo, saya ingin bertanya tentang kebijakan privasi.')}
-                className="text-slate-400 hover:text-orange-400 transition-colors cursor-pointer"
+                className="text-slate-300 hover:text-orange-400 transition-colors cursor-pointer"
               >
                 Kebijakan Privasi
               </button>
               <button 
                 onClick={() => openWhatsApp('Halo, saya ingin bertanya tentang syarat dan ketentuan.')}
-                className="text-slate-400 hover:text-orange-400 transition-colors cursor-pointer"
+                className="text-slate-300 hover:text-orange-400 transition-colors cursor-pointer"
               >
                 Syarat & Ketentuan
               </button>

@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
 import { MessageCircle, ArrowRight } from 'lucide-react'
@@ -36,10 +37,12 @@ export function ServicesSection() {
                 className="group bg-slate-800/50 border-slate-700 hover:border-orange-500/50 transition-all duration-300 overflow-hidden hover:shadow-xl hover:shadow-orange-500/10 cursor-pointer hover:-translate-y-1"
               >
                 <div className="relative h-40 sm:h-48 overflow-hidden">
-                  <img
+                  <Image
                     src={service.image}
                     alt={`${service.title} - Jasa ${service.category} MBUZENK ZETRO`}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent" />

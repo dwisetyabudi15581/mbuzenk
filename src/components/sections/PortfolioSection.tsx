@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useState } from 'react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -48,12 +49,14 @@ export function PortfolioSection() {
             {PROJECTS.map((project, index) => (
               <ScrollAnimation key={index} delay={index * 100}>
                 <div 
-                  className="group relative rounded-2xl overflow-hidden shadow-lg text-left w-full"
+                  className="group relative rounded-2xl overflow-hidden shadow-lg text-left w-full aspect-[4/3]"
                 >
-                  <img
+                  <Image
                     src={project.image}
                     alt={`Proyek ${project.title} - ${project.client}`}
-                    className="w-full h-56 sm:h-72 object-cover group-hover:scale-110 transition-transform duration-500"
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent opacity-80 group-hover:opacity-95 transition-opacity" />
