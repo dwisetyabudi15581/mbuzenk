@@ -98,8 +98,8 @@ export function useAnalytics() {
 declare global {
   interface Window {
     gtag: (
-      command: 'config' | 'event' | 'js',
-      targetIdOrDate: string | Date,
+      command: 'config' | 'event' | 'js' | 'consent' | 'set',
+      targetIdOrDateOrAction: string | Date,
       config?: Record<string, unknown>
     ) => void
     dataLayer: unknown[]
