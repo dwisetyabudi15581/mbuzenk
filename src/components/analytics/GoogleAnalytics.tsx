@@ -13,6 +13,7 @@ export function GoogleAnalytics() {
 
   return (
     <>
+      {/* Google tag (gtag.js) */}
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
         strategy="afterInteractive"
@@ -22,6 +23,14 @@ export function GoogleAnalytics() {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
+          
+          // Default consent - akan diupdate oleh Cookie Consent
+          gtag('consent', 'default', {
+            'analytics_storage': 'denied',
+            'ad_storage': 'denied',
+            'wait_for_update': 500
+          });
+          
           gtag('config', '${GA_ID}', {
             page_title: document.title,
             page_location: window.location.href,
