@@ -8,7 +8,7 @@ import { ArrowRight, ZoomIn } from 'lucide-react'
 import { PROJECTS } from '@/lib/data'
 import { openWhatsApp } from '@/lib/config'
 import { ScrollAnimation } from '@/components/ui/scroll-animation'
-import { ImageLightbox } from '@/components/ui/image-lightbox'
+import { LazyImageLightbox } from '@/components/ui/lazy-components'
 
 export function PortfolioSection() {
   const [lightboxOpen, setLightboxOpen] = useState(false)
@@ -116,7 +116,7 @@ export function PortfolioSection() {
       </section>
 
       {/* Image Lightbox */}
-      <ImageLightbox
+      <LazyImageLightbox
         images={lightboxImages}
         initialIndex={currentImageIndex}
         isOpen={lightboxOpen}

@@ -2,8 +2,8 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
-import { CookieConsent } from "@/components/ui/cookie-consent";
 import { ServiceWorkerRegistration } from "@/components/pwa/ServiceWorkerRegistration";
+import { LazyCookieConsent } from "@/components/ui/lazy-components";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -405,7 +405,7 @@ export default function RootLayout({
         <GoogleAnalytics />
         {children}
         <Toaster />
-        <CookieConsent />
+        <LazyCookieConsent />
       </body>
     </html>
   );
