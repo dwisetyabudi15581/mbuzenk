@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Bengkel Las Magetan - Spesialis Las Besi & Konstruksi Baja',
     description: 'Bengkel las terpercaya di Magetan sejak 2005. Spesialis las besi, konstruksi baja, pagar, tangga. 1000+ proyek selesai. Survei gratis!',
-    images: ['/service-las.png'],
+    images: ['/service-las.webp'],
     type: 'website',
     locale: 'id_ID',
   },
@@ -68,7 +68,7 @@ export default function Page() {
         serviceName="Bengkel Las Magetan - Spesialis Las Besi & Konstruksi Baja"
         serviceDescription="Bengkel las terpercaya di Magetan sejak 2005. Spesialis pembuatan pagar besi minimalis, tangga besi, teralis jendela, kanopi, dan konstruksi baja. Melayani Magetan, Madiun, Ngawi, Ponorogo, dan seluruh Jawa Timur."
         serviceUrl="https://www.mbuzenkzetro.com/layanan/bengkel-las"
-        serviceImage="/service-las.png"
+        serviceImage="/service-las.webp"
         areaServed={['Magetan', 'Madiun', 'Ngawi', 'Ponorogo', 'Surabaya', 'Jawa Timur']}
       />
       <BreadcrumbSchema

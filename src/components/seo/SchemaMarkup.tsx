@@ -43,7 +43,7 @@ export function ArticleSchema({
   url,
   datePublished,
   dateModified,
-  image = '/project-kanopi.png',
+  image = '/project-kanopi.webp',
   keywords,
 }: ArticleSchemaProps) {
   const schema = {
@@ -120,7 +120,7 @@ export function ServiceSchema({
   serviceName,
   serviceDescription,
   serviceUrl,
-  serviceImage = '/service-las.png',
+  serviceImage = '/service-las.webp',
   areaServed = ['Magetan', 'Madiun', 'Ngawi', 'Ponorogo'],
 }: ServiceSchemaProps) {
   const schema = {
@@ -207,7 +207,7 @@ export function LocalBusinessSchema({
       ...BUSINESS_INFO.geo,
     },
     logo: BUSINESS_INFO.logo,
-    image: 'https://www.mbuzenkzetro.com/hero-image.png',
+    image: 'https://www.mbuzenkzetro.com/hero-image.webp',
     priceRange: '$$',
     openingHoursSpecification: [
       {

@@ -35,11 +35,13 @@ export function AboutSection() {
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
           {/* Image */}
           <ScrollAnimation direction="left" className="relative order-2 lg:order-1">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src="/service-las.png"
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]">
+              <Image
+                src="/service-las.webp"
                 alt="Tim bengkel las MBUZENK ZETRO sedang bekerja"
-                className="w-full h-[280px] sm:h-[400px] object-cover"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent" />
