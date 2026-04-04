@@ -1,5 +1,3 @@
-/// <reference lib="webworker" />
-
 const CACHE_NAME = 'mbuzenk-zetro-v1';
 const OFFLINE_URL = '/offline.html';
 
@@ -14,7 +12,7 @@ const PRECACHE_ASSETS = [
 ];
 
 // Install event - precache essential assets
-self.addEventListener('install', (event: ExtendableEvent) => {
+self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       console.log('Precaching essential assets');
@@ -26,7 +24,7 @@ self.addEventListener('install', (event: ExtendableEvent) => {
 });
 
 // Activate event - clean up old caches
-self.addEventListener('activate', (event: ExtendableEvent) => {
+self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
@@ -44,7 +42,7 @@ self.addEventListener('activate', (event: ExtendableEvent) => {
 });
 
 // Fetch event - serve from cache, fallback to network
-self.addEventListener('fetch', (event: FetchEvent) => {
+self.addEventListener('fetch', (event) => {
   // Skip non-GET requests
   if (event.request.method !== 'GET') return;
 
@@ -87,7 +85,7 @@ self.addEventListener('fetch', (event: FetchEvent) => {
         .catch(() => {
           // Network failed, show offline page for navigation requests
           if (event.request.mode === 'navigate') {
-            return caches.match(OFFLINE_URL) as Promise<Response>;
+            return caches.match(OFFLINE_URL);
           }
           return new Response('Offline', { status: 503 });
         });
@@ -96,7 +94,7 @@ self.addEventListener('fetch', (event: FetchEvent) => {
 });
 
 // Handle push notifications (optional)
-self.addEventListener('push', (event: PushEvent) => {
+self.addEventListener('push', (event) => {
   if (!event.data) return;
 
   const data = event.data.json();
@@ -116,7 +114,7 @@ self.addEventListener('push', (event: PushEvent) => {
 });
 
 // Handle notification click
-self.addEventListener('notificationclick', (event: NotificationEvent) => {
+self.addEventListener('notificationclick', (event) => {
   event.notification.close();
 
   event.waitUntil(
@@ -134,46 +132,3 @@ self.addEventListener('notificationclick', (event: NotificationEvent) => {
     })
   );
 });
-
-// Type declarations for service worker
-declare const self: ServiceWorkerGlobalScope;
-
-interface ExtendableEvent extends Event {
-  waitUntil(promise: Promise<unknown>): void;
-}
-
-interface FetchEvent extends Event {
-  request: Request;
-  respondWith(response: Promise<Response | undefined> | Response | undefined): void;
-}
-
-interface PushEvent extends Event {
-  data: PushMessageData | null;
-}
-
-interface PushMessageData {
-  json(): { title?: string; body?: string; url?: string };
-}
-
-interface NotificationEvent extends Event {
-  notification: Notification & { data: { url: string } };
-  waitUntil(promise: Promise<unknown>): void;
-}
-
-interface ServiceWorkerGlobalScope {
-  location: Location;
-  skipWaiting(): void;
-  clients: Clients;
-  registration: ServiceWorkerRegistration;
-}
-
-interface Clients {
-  claim(): void;
-  matchAll(options?: { type?: string }): Promise<Client[]>;
-  openWindow(url: string): Promise<void>;
-}
-
-interface Client {
-  url: string;
-  focus(): Promise<Client>;
-}
