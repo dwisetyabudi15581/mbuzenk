@@ -1,6 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
+import { CookieConsent } from "@/components/ui/cookie-consent";
+import { ServiceWorkerRegistration } from "@/components/pwa/ServiceWorkerRegistration";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -104,6 +107,7 @@ export const metadata: Metadata = {
     icon: "/logo-icon.png",
     apple: "/logo-icon.png",
   },
+  manifest: "/manifest.json",
   openGraph: {
     title: "Bengkel Las Magetan | Renovasi Rumah & Konstruksi Baja - MBUZENK ZETRO",
     description: "Bengkel las Magetan terpercaya sejak 2005. Jasa renovasi rumah, kanopi minimalis, pagar besi, tangga besi, konstruksi baja. 1000+ proyek selesai. Gratis survei! Hubungi: 0857-3860-2255.",
@@ -388,8 +392,11 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased bg-background text-foreground">
+        <ServiceWorkerRegistration />
+        <GoogleAnalytics />
         {children}
         <Toaster />
+        <CookieConsent />
       </body>
     </html>
   );
