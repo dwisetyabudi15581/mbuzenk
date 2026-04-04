@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Award, MessageCircle, Hammer } from 'lucide-react'
 import { CONFIG, openWhatsApp, scrollToSection } from '@/lib/config'
@@ -7,15 +8,18 @@ import { CONFIG, openWhatsApp, scrollToSection } from '@/lib/config'
 export function HeroSection() {
   return (
     <section id="beranda" className="relative min-h-screen flex items-center pt-16 sm:pt-20">
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: 'url(/hero-image.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
+      {/* Background Image - Optimized with Next.js Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/hero-image.png"
+          alt="Bengkel Las MBUZENK ZETRO - Spesialis Kanopi, Pagar Besi, Renovasi Rumah"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+          placeholder="blur"
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/85 to-slate-900/70" />
       </div>
 
