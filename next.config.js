@@ -17,11 +17,8 @@ const nextConfig = {
     remotePatterns: [],
   },
   
-  // Experimental features
-  experimental: {
-    // Optimistic client cache
-    optimisticClientCache: true,
-  },
+  // Output standalone untuk deployment yang lebih efisien
+  output: 'standalone',
   
   // Redirect dari non-www ke www (jika deploy di Vercel, ini bisa dihandle di vercel.json)
   async redirects() {
