@@ -121,7 +121,7 @@ export function Footer() {
             <h4 className="font-semibold text-white mb-3 sm:mb-4 text-sm sm:text-base">Artikel</h4>
             <ul className="space-y-2 sm:space-y-3">
               <li>
-                <Link href="/artikel" className="text-orange-400 hover:text-orange-300 transition-colors text-xs sm:text-sm py-1 font-medium flex items-center gap-1.5">
+                <Link href="/artikel" className="text-orange-300 hover:text-orange-200 transition-colors text-xs sm:text-sm py-1 font-medium flex items-center gap-1.5">
                   <Newspaper className="w-3.5 h-3.5" />
                   Semua Artikel
                 </Link>
@@ -179,19 +179,19 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-slate-800 pt-6 sm:pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-slate-500 text-xs sm:text-sm text-center md:text-left">
+            <p className="text-slate-400 text-xs sm:text-sm text-center md:text-left">
               &copy; {new Date().getFullYear()} {CONFIG.businessName}. Bengkel Las & Renovasi Rumah Magetan. All rights reserved.
             </p>
             <div className="flex gap-4 sm:gap-6 text-xs sm:text-sm">
               <button 
                 onClick={() => openWhatsApp('Halo, saya ingin bertanya tentang kebijakan privasi.')}
-                className="text-slate-500 hover:text-orange-400 transition-colors cursor-pointer"
+                className="text-slate-400 hover:text-orange-400 transition-colors cursor-pointer"
               >
                 Kebijakan Privasi
               </button>
               <button 
                 onClick={() => openWhatsApp('Halo, saya ingin bertanya tentang syarat dan ketentuan.')}
-                className="text-slate-500 hover:text-orange-400 transition-colors cursor-pointer"
+                className="text-slate-400 hover:text-orange-400 transition-colors cursor-pointer"
               >
                 Syarat & Ketentuan
               </button>

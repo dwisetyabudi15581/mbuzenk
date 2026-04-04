@@ -2,23 +2,60 @@
 
 import Script from 'next/script'
 import { usePathname, useSearchParams } from 'next/navigation'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
-// Google Analytics 4 Component
+// Google Analytics 4 Component - Deferred loading for better performance
 export function GoogleAnalytics() {
   const GA_ID = process.env.NEXT_PUBLIC_GA_ID
+  const [shouldLoad, setShouldLoad] = useState(false)
 
   // Skip jika tidak ada GA_ID
   if (!GA_ID) return null
 
+  // Load GA only after user interaction for better performance
+  useEffect(() => {
+    if (shouldLoad) return
+
+    const loadGA = () => {
+      setShouldLoad(true)
+    }
+
+    // Load on user interaction
+    const events = ['mousedown', 'keydown', 'touchstart', 'scroll', 'wheel']
+    
+    const handleInteraction = () => {
+      loadGA()
+      // Remove all listeners after first interaction
+      events.forEach(event => {
+        window.removeEventListener(event, handleInteraction)
+      })
+    }
+
+    events.forEach(event => {
+      window.addEventListener(event, handleInteraction, { once: true, passive: true })
+    })
+
+    // Also load after 3 seconds if no interaction
+    const timer = setTimeout(loadGA, 3000)
+
+    return () => {
+      events.forEach(event => {
+        window.removeEventListener(event, handleInteraction)
+      })
+      clearTimeout(timer)
+    }
+  }, [shouldLoad])
+
+  if (!shouldLoad) return null
+
   return (
     <>
-      {/* Google tag (gtag.js) */}
+      {/* Google tag (gtag.js) - loaded after interaction */}
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
-      <Script id="google-analytics" strategy="afterInteractive">
+      <Script id="google-analytics" strategy="lazyOnload">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}

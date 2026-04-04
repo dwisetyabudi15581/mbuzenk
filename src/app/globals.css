@@ -270,22 +270,10 @@ img {
   animation: float 3s ease-in-out infinite;
 }
 
-/* Gradient text animation */
-@keyframes gradient-shift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
+/* Gradient text - static for better performance */
 .animate-gradient {
   background-size: 200% 200%;
-  animation: gradient-shift 3s ease infinite;
+  /* Removed animation for better performance - background-position is not GPU accelerated */
 }
 
 /* Pulse ring animation for CTA buttons */

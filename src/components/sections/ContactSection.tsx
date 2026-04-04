@@ -9,6 +9,7 @@ import { Textarea } from '@/components/ui/textarea'
 import { Phone, Mail, MapPin, Clock, MessageCircle, Send } from 'lucide-react'
 import { CONFIG, openWhatsApp, makeCall, sendEmail } from '@/lib/config'
 import { ScrollAnimation } from '@/components/ui/scroll-animation'
+import { LazyMap } from '@/components/ui/LazyMap'
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -162,22 +163,12 @@ Lokasi: ${CONFIG.address}, ${CONFIG.city}`
               </Card>
             </ScrollAnimation>
 
-            {/* Google Maps */}
+            {/* Google Maps - Lazy loaded on click */}
             <ScrollAnimation delay={500}>
               <Card className="bg-slate-800/50 border-slate-700 overflow-hidden">
                 <CardContent className="p-0">
                   <div className="aspect-video w-full">
-                    <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.2852026783544!2d111.3593054!3d-7.6516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e79bd5a4c5b5b5b%3A0x5b5b5b5b5b5b5b5b!2sBengkel%20Las%20MBUZENK%20ZETRO!5e0!3m2!1sid!2sid!4v1234567890"
-                      width="100%"
-                      height="100%"
-                      style={{ border: 0 }}
-                      allowFullScreen
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                      title="Lokasi Bengkel Las MBUZENK ZETRO Magetan"
-                      className="w-full h-full min-h-[200px]"
-                    />
+                    <LazyMap />
                   </div>
                   <div className="p-4">
                     <p className="text-slate-300 text-xs sm:text-sm font-medium">
